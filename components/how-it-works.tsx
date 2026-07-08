@@ -2,32 +2,32 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Bluetooth, Wifi, Cpu, Activity, Download, ArrowRight } from "lucide-react";
+import { UserPlus, BookOpen, Video, TrendingUp, ArrowRight } from "lucide-react";
 
 const steps = [
   {
-    icon: Download,
-    title: "Download the OBD2 App",
+    icon: UserPlus,
+    title: "Create Your Free Account",
     description:
-      "Get started by downloading AI4Car from the App Store or Google Play. Our OBD2 scanner app is available for both Android and iPhone, making vehicle diagnostics accessible to everyone.",
+      "Sign up in seconds and tell us which language you want to learn and your current level. It's completely free to get started, no card required.",
   },
   {
-    icon: Bluetooth,
-    title: "Connect Your OBD2 Scanner",
+    icon: BookOpen,
+    title: "Choose Your Course",
     description:
-      "Plug your OBD2 Bluetooth scanner or Wi-Fi adapter into your car's diagnostic port (located under the dashboard). The app automatically detects and pairs with your scanner in seconds.",
+      "Pick from English, French, Spanish, or German. Each course is organized by level and focus, so you always know exactly where to begin.",
   },
   {
-    icon: Activity,
-    title: "Scan Car Errors Instantly",
+    icon: Video,
+    title: "Join Live Lessons",
     description:
-      "Tap scan to read all fault codes from your vehicle's computer. Our check engine scanner app retrieves error codes, pending codes, and live sensor data in real time.",
+      "Attend interactive online lessons with native teachers and a small group of classmates. You practice speaking in real situations from the very first class.",
   },
   {
-    icon: Cpu,
-    title: "Get AI-Powered Analysis",
+    icon: TrendingUp,
+    title: "Track Your Progress",
     description:
-      "Our car diagnostic app uses advanced AI to analyze your fault codes. Receive clear explanations of what each error means and get actionable repair recommendations instantly.",
+      "Follow your improvement with clear milestones and certificates. Keep going at your own pace and watch your confidence grow week after week.",
   },
 ];
 
@@ -111,14 +111,14 @@ export function HowItWorks() {
         {/* Section header with SEO content */}
         <div className="text-left">
           <h2 id="how-it-works-heading" className="text-3xl font-bold tracking-tight sm:text-4xl">
-            <span className="text-foreground">How Our </span>
-            <span className="gradient-text">OBD2 Scanner App</span>
+            <span className="text-foreground">How </span>
+            <span className="gradient-text">LinguaHub</span>
             <span className="text-foreground"> Works</span>
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            Getting started with AI4Car is simple. Download the app, connect your OBD2 Bluetooth 
-            or Wi-Fi scanner, and start diagnosing your vehicle in minutes. Works on both 
-            Android and iPhone.
+            Getting started is simple. Create your free account, choose your
+            language, and join your first live lesson in minutes. Learn from
+            anywhere, on any device.
           </p>
         </div>
 
@@ -156,8 +156,8 @@ export function HowItWorks() {
         {/* Learn more link */}
         <div className="mt-12 text-left">
           <Button asChild variant="link" className="text-primary px-0">
-            <Link href="/how-it-works">
-              Learn more about how it works
+            <Link href="/courses">
+              Explore all our courses
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
@@ -168,16 +168,16 @@ export function HowItWorks() {
           <div className="flex flex-col items-center text-center gap-6 sm:flex-row sm:text-left sm:justify-between">
             <div className="max-w-xl">
               <h3 className="text-xl font-semibold text-foreground sm:text-2xl">
-                Ready to diagnose your car?
+                Ready to start speaking a new language?
               </h3>
               <p className="mt-2 text-muted-foreground">
-                Download AI4Car now and turn your smartphone into a powerful OBD2 scanner. 
-                Available for Android and iPhone. Start your free trial today.
+                Create your free LinguaHub account today and book your first live
+                lesson with an expert teacher. No card required to get started.
               </p>
             </div>
             <Button asChild size="lg" variant="glow" className="shrink-0">
-              <Link href="/downloads" className="flex items-center gap-2">
-                Download Free
+              <Link href="/register" className="flex items-center gap-2">
+                Get Started Free
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>

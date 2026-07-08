@@ -1,41 +1,41 @@
-import { Zap, Cpu, Car, Smartphone, History, Cloud } from "lucide-react";
+import { MessageCircle, Users, Video, CalendarClock, Award, Globe } from "lucide-react";
 
 const features = [
   {
-    icon: Zap,
-    title: "Instant Error Scanning",
+    icon: MessageCircle,
+    title: "Conversation First",
     description:
-      "Scan car errors in seconds with our OBD2 scanner app. Connect via Bluetooth or Wi-Fi and read all fault codes instantly from your vehicle's computer.",
+      "You start speaking from your very first lesson. Our teachers focus on real conversations, not endless grammar drills, so you build confidence fast.",
   },
   {
-    icon: Cpu,
-    title: "AI-Powered Diagnostics",
+    icon: Globe,
+    title: "Native Teachers",
     description:
-      "Our car diagnostic app uses artificial intelligence to analyze error codes and provide clear, actionable recommendations for repairs.",
+      "Learn from friendly, experienced native speakers who know how to make a new language feel natural, clear, and fun to practice.",
   },
   {
-    icon: Car,
-    title: "Universal Compatibility",
+    icon: Users,
+    title: "Small Groups",
     description:
-      "Works with all OBD2-compatible vehicles manufactured since 1996. The car fault code reader supports all standard protocols.",
+      "Classes stay small so everyone gets plenty of speaking time and personal attention. Learn together with students at your level.",
   },
   {
-    icon: Smartphone,
-    title: "Android Support",
+    icon: Video,
+    title: "Live Online Lessons",
     description:
-      "Download the OBD2 scanner for Android. Our vehicle diagnostics app works seamlessly on your smartphone.",
+      "Join interactive lessons from anywhere. All you need is an internet connection to learn with your teacher and classmates in real time.",
   },
   {
-    icon: History,
-    title: "Diagnostic History",
+    icon: CalendarClock,
+    title: "Flexible Schedule",
     description:
-      "Keep track of all your scans with detailed history. Monitor your vehicle's health over time and spot recurring issues early.",
+      "Pick times that fit your life and learn at your own pace. Reschedule when you need to and never miss the material.",
   },
   {
-    icon: Cloud,
-    title: "Cloud Sync & Backup",
+    icon: Award,
+    title: "Track Your Progress",
     description:
-      "Your diagnostic data is securely stored in the cloud. Access your scan history from any device, anytime.",
+      "Follow a clear path with progress tracking and certificates, so you always know how far you've come and what's next.",
   },
 ];
 
@@ -54,7 +54,7 @@ export function Features() {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20rem] font-bold tracking-tighter opacity-[0.015] whitespace-nowrap"
           style={{ fontFamily: 'system-ui, sans-serif' }}
         >
-          AI4CAR
+          LINGUA
         </div>
       </div>
       
@@ -62,13 +62,13 @@ export function Features() {
         {/* Section header with SEO-optimized content */}
         <div className="text-left">
           <h2 id="features-heading" className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            <span className="text-foreground">Why Choose Our </span>
-            <span className="gradient-text">Car Diagnostic App</span>
+            <span className="text-foreground">Why Learn with </span>
+            <span className="gradient-text">LinguaHub</span>
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            AI4Car combines the power of an OBD2 Bluetooth scanner app with intelligent 
-            AI analysis. Scan car errors, understand what they mean, and know exactly 
-            what to fix.
+            We make learning a new language simple and enjoyable. Live lessons,
+            native teachers, and a focus on real conversation help you make
+            progress you can actually feel.
           </p>
         </div>
 

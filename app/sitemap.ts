@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
-import { problems, categories, type ProblemCategory } from "@/lib/problems-data";
+import { courses, categories } from "@/lib/courses-data";
 
-const BASE_URL = "https://ai4car.app";
+const BASE_URL = "https://linguahub.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -52,32 +52,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Problems index
-  const problemsIndex: MetadataRoute.Sitemap = [
+  // Courses index
+  const coursesIndex: MetadataRoute.Sitemap = [
     {
-      url: `${BASE_URL}/problems`,
+      url: `${BASE_URL}/courses`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
     },
   ];
 
-  // Problem categories
+  // Course categories
   const categoryPages: MetadataRoute.Sitemap = Object.keys(categories).map(
     (category) => ({
-      url: `${BASE_URL}/problems/category/${category}`,
+      url: `${BASE_URL}/courses/category/${category}`,
       lastModified,
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })
   );
 
-  // Individual problem pages
-  const problemPages: MetadataRoute.Sitemap = problems.map((problem) => ({
-    url: `${BASE_URL}/problems/${problem.slug}`,
+  // Individual course pages
+  const coursePages: MetadataRoute.Sitemap = courses.map((course) => ({
+    url: `${BASE_URL}/courses/${course.slug}`,
     lastModified,
     changeFrequency: "monthly" as const,
-    priority: problem.searchVolume === "high" ? 0.8 : problem.searchVolume === "medium" ? 0.7 : 0.6,
+    priority: course.searchVolume === "high" ? 0.8 : course.searchVolume === "medium" ? 0.7 : 0.6,
   }));
 
   // Secondary pages
@@ -104,9 +104,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...mainPages,
-    ...problemsIndex,
+    ...coursesIndex,
     ...categoryPages,
-    ...problemPages,
+    ...coursePages,
     ...secondaryPages,
   ];
 }

@@ -1,17 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, User, LogOut, Settings, ChevronDown, CreditCard, MessageCircle } from "lucide-react";
+import { Menu, X, User, LogOut, Settings, ChevronDown, CreditCard, MessageCircle, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth-context";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/problems", label: "Problems" },
+  { href: "/courses", label: "Courses" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/downloads", label: "Download" },
+  { href: "/about", label: "About" },
 ];
 
 export function Header() {
@@ -61,18 +60,11 @@ export function Header() {
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative h-10 w-10 transition-all duration-300 group-hover:glow-primary">
-            <Image
-              src="/logo.svg"
-              alt="AI4Car Logo"
-              width={40}
-              height={40}
-              className="object-contain"
-              priority
-            />
+          <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground transition-all duration-300 group-hover:glow-primary">
+            <Languages className="h-5 w-5" />
           </div>
           <span className="text-lg font-bold text-foreground">
-            AI4<span className="text-primary">Car</span>
+            Lingua<span className="text-primary">Hub</span>
           </span>
         </Link>
 
