@@ -161,6 +161,21 @@ export default function RootLayout({
     ]
   };
 
+  const softwareAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "LinguaHub",
+    url: "https://linguahub.app",
+    applicationCategory: "EducationApplication",
+    operatingSystem: "Web",
+    description: "Online language learning platform with live lessons and native teachers in English, French, Spanish, and German.",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    }
+  };
+
   return (
     <html lang="en" className="dark">
       <head>
