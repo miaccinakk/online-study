@@ -34,9 +34,9 @@ export default function HomePage() {
     <>
       <Hero />
       <Features />
+      <StudentStories />
       <HowItWorks />
       <CoursesPreview />
-      <StudentStories />
     </>
   );
 }

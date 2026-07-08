@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import { ScrollRail } from "@/components/scroll-rail";
 
 interface Story {
   name: string;
@@ -36,6 +37,27 @@ const stories: Story[] = [
       "Learning the writing systems felt impossible until LinguaHub. The lessons broke it down step by step.",
     video: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
   },
+  {
+    name: "Marta, 35",
+    detail: "Runs a business with Italian partners",
+    quote:
+      "The conversation-first approach was perfect for me. I can now negotiate and joke with my partners in Italian.",
+    video: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  },
+  {
+    name: "Diego, 22",
+    detail: "Studying abroad in Lisbon",
+    quote:
+      "I felt at home in Portugal within weeks. The teachers gave me the confidence to speak from the very first lesson.",
+    video: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+  },
+  {
+    name: "Yuki, 29",
+    detail: "Landed a job in Shanghai",
+    quote:
+      "Mandarin tones scared me at first, but the step-by-step coaching made them click. Now I use Chinese every day at work.",
+    video: "https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
+  },
 ];
 
 export function StudentStories() {
@@ -55,35 +77,38 @@ export function StudentStories() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          {stories.map((story) => (
-            <article
-              key={story.name}
-              className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5"
-            >
-              <div className="relative aspect-video w-full bg-muted">
-                <video
-                  className="h-full w-full object-cover"
-                  controls
-                  preload="none"
-                  playsInline
-                >
-                  <source src={story.video} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <Quote className="h-6 w-6 text-primary/40" />
-                <p className="mt-3 flex-1 text-foreground leading-relaxed">
-                  {story.quote}
-                </p>
-                <div className="mt-4 border-t border-border pt-4">
-                  <p className="font-semibold text-foreground">{story.name}</p>
-                  <p className="text-sm text-muted-foreground">{story.detail}</p>
+        {/* Horizontal scroll rail */}
+        <div className="mt-12">
+          <ScrollRail ariaLabel="Student stories">
+            {stories.map((story) => (
+              <article
+                key={story.name}
+                className="flex w-[300px] flex-shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 sm:w-[360px]"
+              >
+                <div className="relative aspect-video w-full bg-muted">
+                  <video
+                    className="h-full w-full object-cover"
+                    controls
+                    preload="none"
+                    playsInline
+                  >
+                    <source src={story.video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
-              </div>
-            </article>
-          ))}
+                <div className="flex flex-1 flex-col p-6">
+                  <Quote className="h-6 w-6 text-primary/40" />
+                  <p className="mt-3 flex-1 text-foreground leading-relaxed">
+                    {story.quote}
+                  </p>
+                  <div className="mt-4 border-t border-border pt-4">
+                    <p className="font-semibold text-foreground">{story.name}</p>
+                    <p className="text-sm text-muted-foreground">{story.detail}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </ScrollRail>
         </div>
       </div>
     </section>

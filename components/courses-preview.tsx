@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle, Briefcase, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollRail } from "@/components/scroll-rail";
 import { courses, categories, type CourseCategory } from "@/lib/courses-data";
 
 const categoryIcons: Record<CourseCategory, React.ElementType> = {
@@ -39,19 +40,18 @@ export function CoursesPreview() {
             </Link>
           </Button>
         </div>
-      </div>
 
-      {/* Horizontal scroll rail */}
-      <div className="relative mt-12">
-        <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-6 sm:px-6 lg:px-[max(2rem,calc((100vw-72rem)/2))] [scrollbar-width:thin]">
-          {featured.map((course) => {
-            const Icon = categoryIcons[course.category];
-            return (
-              <Link
-                key={course.slug}
-                href={`/courses/${course.slug}`}
-                className="group flex w-[300px] flex-shrink-0 snap-start flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 sm:w-[340px]"
-              >
+        {/* Horizontal scroll rail */}
+        <div className="mt-12">
+          <ScrollRail ariaLabel="Featured courses">
+            {featured.map((course) => {
+              const Icon = categoryIcons[course.category];
+              return (
+                <Link
+                  key={course.slug}
+                  href={`/courses/${course.slug}`}
+                  className="group flex w-[300px] flex-shrink-0 snap-start flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 sm:w-[340px]"
+                >
                 <div className="relative h-44 w-full overflow-hidden">
                   <Image
                     src={course.image || "/placeholder.svg"}
@@ -87,8 +87,9 @@ export function CoursesPreview() {
                   </span>
                 </div>
               </Link>
-            );
-          })}
+              );
+            })}
+          </ScrollRail>
         </div>
       </div>
 

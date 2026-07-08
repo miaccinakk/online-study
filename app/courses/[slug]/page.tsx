@@ -61,7 +61,7 @@ export default async function CoursePage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-background">
       {/* Breadcrumb */}
-      <div className="border-b border-border/50 bg-muted/30">
+      <div className="bg-background">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
             <Link href="/courses" className="hover:text-primary transition-colors">
@@ -82,7 +82,7 @@ export default async function CoursePage({ params }: PageProps) {
 
       {/* Photo Hero */}
       <div className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8">
-        <header className="relative flex min-h-[420px] flex-col justify-end overflow-hidden rounded-2xl p-8 sm:min-h-[480px] sm:p-12">
+        <header className="relative flex min-h-[420px] flex-col justify-end overflow-hidden rounded-2xl p-8 pb-12 sm:min-h-[480px] sm:p-12 sm:pb-16">
           <div className="absolute inset-0">
             <Image
               src={course.image || "/placeholder.svg"}
