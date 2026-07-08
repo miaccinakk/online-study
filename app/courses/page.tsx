@@ -1,109 +1,103 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Search, AlertTriangle, Leaf, Fuel, Cpu, Cog, ArrowRight, Sparkles, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, MessageCircle, Briefcase, GraduationCap, ArrowRight, Sparkles, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { problems, categories, getMostSearchedProblems, getPaginatedProblems, PROBLEMS_PER_PAGE, type ProblemCategory } from "@/lib/problems-data";
+import { courses, categories, getFeaturedCourses, getPaginatedCourses, type CourseCategory } from "@/lib/courses-data";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "/problems",
+    canonical: "/courses",
   },
-  title: "Popular Car Problems & OBD2 Error Codes | AI4Car",
-  description: "AI-powered explanations for common vehicle issues. Search OBD2 error codes like P0304, P0171, P0420 and get instant diagnostics with causes, symptoms, and solutions.",
+  title: "Language Courses | LinguaHub Online School",
+  description:
+    "Browse our online language courses. Learn English, French, Spanish, and German with native teachers through live, conversation-first lessons.",
   keywords: [
-    "obd2 error codes",
-    "car problems",
-    "check engine light codes",
-    "p0304",
-    "p0171", 
-    "p0420",
-    "car diagnostic codes",
-    "engine error codes",
-    "vehicle fault codes",
+    "online language courses",
+    "learn english online",
+    "learn french online",
+    "learn spanish online",
+    "learn german online",
+    "language school",
   ],
   openGraph: {
-    title: "Popular Car Problems & OBD2 Error Codes | AI4Car",
-    description: "AI-powered explanations for common vehicle issues. Search any OBD2 code and get instant diagnostics.",
+    title: "Language Courses | LinguaHub Online School",
+    description: "Learn English, French, Spanish, and German online with native teachers.",
   },
 };
 
-const categoryIcons: Record<ProblemCategory, React.ElementType> = {
-  engine: AlertTriangle,
-  emissions: Leaf,
-  fuel: Fuel,
-  sensors: Cpu,
-  transmission: Cog,
+const categoryIcons: Record<CourseCategory, React.ElementType> = {
+  conversation: MessageCircle,
+  business: Briefcase,
+  exam: GraduationCap,
 };
 
-interface ProblemsPageProps {
+interface CoursesPageProps {
   searchParams: Promise<{ page?: string }>;
 }
 
-export default async function ProblemsPage({ searchParams }: ProblemsPageProps) {
+export default async function CoursesPage({ searchParams }: CoursesPageProps) {
   const params = await searchParams;
   const currentPage = Math.max(1, parseInt(params.page || "1", 10));
-  const { problems: paginatedProblems, totalPages, totalCount } = getPaginatedProblems(currentPage);
-  const mostSearched = getMostSearchedProblems();
-  
+  const { courses: paginatedCourses, totalPages, totalCount } = getPaginatedCourses(currentPage);
+  const featured = getFeaturedCourses();
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative overflow-hidden border-b border-border/50">
         <div className="absolute inset-0 isometric-grid opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
-        
+
         <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          {/* Two-column layout on desktop */}
           <div className="grid items-end gap-8 lg:grid-cols-2 lg:gap-16">
-            {/* Left: Title and description */}
             <div className="flex flex-col items-start text-left">
               <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground mb-6">
                 <Sparkles className="h-4 w-4 text-primary" />
-                <span>AI-Powered Diagnostics</span>
+                <span>Live lessons with native teachers</span>
               </div>
-              
+
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                <span className="text-foreground">Popular Car Problems</span>
+                <span className="text-foreground">Our Language</span>
                 <br />
-                <span className="gradient-text">& OBD2 Error Codes</span>
+                <span className="gradient-text">Courses</span>
               </h1>
-              
+
               <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-                AI-powered explanations for common vehicle issues. Search any error code 
-                and get instant diagnostics with causes, symptoms, and solutions.
+                Choose a language and start speaking from your very first lesson.
+                Every course is built around real conversation, small groups, and
+                friendly, expert teachers.
               </p>
             </div>
 
-            {/* Right: Stats or quick info (desktop only) */}
             <div className="hidden lg:flex items-end justify-end gap-8">
               <div className="text-right">
-                <div className="text-4xl font-bold text-primary">{totalCount}+</div>
-                <div className="text-sm text-muted-foreground">Error Codes</div>
+                <div className="text-4xl font-bold text-primary">{totalCount}</div>
+                <div className="text-sm text-muted-foreground">Languages</div>
               </div>
               <div className="text-right">
-                <div className="text-4xl font-bold text-primary">5</div>
+                <div className="text-4xl font-bold text-primary">3</div>
                 <div className="text-sm text-muted-foreground">Categories</div>
               </div>
               <div className="text-right">
-                <div className="text-4xl font-bold text-primary">AI</div>
-                <div className="text-sm text-muted-foreground">Powered</div>
+                <div className="text-4xl font-bold text-primary">Live</div>
+                <div className="text-sm text-muted-foreground">Classes</div>
               </div>
             </div>
           </div>
 
-          {/* Search Bar - full width */}
+          {/* Search Bar */}
           <div className="mt-10">
-            <form action="/problems/search" method="GET" className="relative">
+            <form action="/courses/search" method="GET" className="relative">
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                 <input
                   type="text"
                   name="q"
-                  placeholder="Search error code (e.g. P0304, P0171)"
+                  placeholder="Search a language (e.g. English, Spanish)"
                   className="w-full h-14 pl-12 pr-32 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                 />
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   className="absolute right-2 top-1/2 -translate-y-1/2"
                   variant="glow"
                 >
@@ -115,29 +109,29 @@ export default async function ProblemsPage({ searchParams }: ProblemsPageProps) 
         </div>
       </section>
 
-      {/* Most Searched Section - Only show on first page */}
+      {/* Featured Courses - Only show on first page */}
       {currentPage === 1 && (
-        <section className="py-16 sm:py-20" aria-labelledby="most-searched-heading">
+        <section className="py-16 sm:py-20" aria-labelledby="featured-heading">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 mb-8">
               <TrendingUp className="h-5 w-5 text-primary" />
-              <h2 id="most-searched-heading" className="text-2xl font-bold">Most Searched Issues</h2>
+              <h2 id="featured-heading" className="text-2xl font-bold">Most Popular Courses</h2>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {mostSearched.slice(0, 8).map((problem) => (
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {featured.map((course) => (
                 <Link
-                  key={problem.slug}
-                  href={`/problems/${problem.slug}`}
+                  key={course.slug}
+                  href={`/courses/${course.slug}`}
                   className="group relative p-6 rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
                 >
                   <div className="flex items-start justify-between">
                     <div>
                       <span className="inline-block font-mono text-lg font-bold text-primary mb-2">
-                        {problem.code}
+                        {course.code}
                       </span>
                       <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                        {problem.title.split(":")[1]?.trim() || problem.title}
+                        {course.title.split(":")[0]?.trim() || course.title}
                       </h3>
                     </div>
                     <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
@@ -154,17 +148,17 @@ export default async function ProblemsPage({ searchParams }: ProblemsPageProps) 
         <section className="py-16 sm:py-20 border-t border-border/50" aria-labelledby="categories-heading">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 id="categories-heading" className="text-2xl font-bold mb-8">Browse by Category</h2>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {(Object.keys(categories) as ProblemCategory[]).map((key) => {
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {(Object.keys(categories) as CourseCategory[]).map((key) => {
                 const category = categories[key];
                 const Icon = categoryIcons[key];
-                const count = problems.filter((p) => p.category === key).length;
-                
+                const count = courses.filter((c) => c.category === key).length;
+
                 return (
                   <Link
                     key={key}
-                    href={`/problems/category/${key}`}
+                    href={`/courses/category/${key}`}
                     className="group flex flex-col items-center p-6 rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 text-center"
                   >
                     <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
@@ -174,7 +168,7 @@ export default async function ProblemsPage({ searchParams }: ProblemsPageProps) 
                       {category.name}
                     </h3>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      {count} {count === 1 ? "article" : "articles"}
+                      {count} {count === 1 ? "course" : "courses"}
                     </p>
                   </Link>
                 );
@@ -184,14 +178,14 @@ export default async function ProblemsPage({ searchParams }: ProblemsPageProps) 
         </section>
       )}
 
-      {/* All Articles Grid */}
-      <section className="py-16 sm:py-20 border-t border-border/50" aria-labelledby="all-articles-heading">
+      {/* All Courses Grid */}
+      <section className="py-16 sm:py-20 border-t border-border/50" aria-labelledby="all-courses-heading">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
-            <h2 id="all-articles-heading" className="text-2xl font-bold">
-              All Error Codes & Problems
+            <h2 id="all-courses-heading" className="text-2xl font-bold">
+              All Courses
               <span className="ml-2 text-base font-normal text-muted-foreground">
-                ({totalCount} articles)
+                ({totalCount})
               </span>
             </h2>
             {currentPage > 1 && (
@@ -200,14 +194,14 @@ export default async function ProblemsPage({ searchParams }: ProblemsPageProps) 
               </span>
             )}
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {paginatedProblems.map((problem) => {
-              const Icon = categoryIcons[problem.category];
-              
+            {paginatedCourses.map((course) => {
+              const Icon = categoryIcons[course.category];
+
               return (
                 <article
-                  key={problem.slug}
+                  key={course.slug}
                   className="group relative flex flex-col p-6 rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
                 >
                   <div className="flex items-start gap-4 mb-4">
@@ -215,26 +209,26 @@ export default async function ProblemsPage({ searchParams }: ProblemsPageProps) 
                       <Icon className="h-5 w-5" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      {problem.code && (
+                      {course.code && (
                         <span className="inline-block font-mono text-sm font-bold text-primary mb-1">
-                          {problem.code}
+                          {course.code}
                         </span>
                       )}
                       <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                        {problem.title.split(":")[1]?.trim() || problem.title}
+                        {course.title.split(":")[0]?.trim() || course.title}
                       </h3>
                     </div>
                   </div>
-                  
+
                   <p className="text-sm text-muted-foreground line-clamp-3 mb-4 flex-1">
-                    {problem.description}
+                    {course.description}
                   </p>
-                  
+
                   <Link
-                    href={`/problems/${problem.slug}`}
+                    href={`/courses/${course.slug}`}
                     className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
                   >
-                    Read more
+                    View course
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </article>
@@ -245,10 +239,9 @@ export default async function ProblemsPage({ searchParams }: ProblemsPageProps) 
           {/* Pagination */}
           {totalPages > 1 && (
             <nav className="mt-12 flex items-center justify-center gap-2" aria-label="Pagination">
-              {/* Previous Button */}
               {currentPage > 1 ? (
                 <Link
-                  href={currentPage === 2 ? "/problems" : `/problems?page=${currentPage - 1}`}
+                  href={currentPage === 2 ? "/courses" : `/courses?page=${currentPage - 1}`}
                   className="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg border border-border bg-card hover:bg-muted transition-colors"
                   rel="prev"
                 >
@@ -262,55 +255,30 @@ export default async function ProblemsPage({ searchParams }: ProblemsPageProps) 
                 </span>
               )}
 
-              {/* Page Numbers */}
               <div className="hidden sm:flex items-center gap-1">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => {
-                  // Show first page, last page, and pages around current
-                  const showPage = 
-                    pageNum === 1 || 
-                    pageNum === totalPages || 
-                    (pageNum >= currentPage - 1 && pageNum <= currentPage + 1);
-                  
-                  const showEllipsis = 
-                    (pageNum === 2 && currentPage > 3) ||
-                    (pageNum === totalPages - 1 && currentPage < totalPages - 2);
-                  
-                  if (!showPage && !showEllipsis) return null;
-                  
-                  if (showEllipsis && !showPage) {
-                    return (
-                      <span key={pageNum} className="px-2 text-muted-foreground">
-                        ...
-                      </span>
-                    );
-                  }
-                  
-                  return (
-                    <Link
-                      key={pageNum}
-                      href={pageNum === 1 ? "/problems" : `/problems?page=${pageNum}`}
-                      className={`inline-flex items-center justify-center w-10 h-10 text-sm font-medium rounded-lg border transition-colors ${
-                        pageNum === currentPage
-                          ? "border-primary bg-primary text-primary-foreground"
-                          : "border-border bg-card hover:bg-muted"
-                      }`}
-                      aria-current={pageNum === currentPage ? "page" : undefined}
-                    >
-                      {pageNum}
-                    </Link>
-                  );
-                })}
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                  <Link
+                    key={pageNum}
+                    href={pageNum === 1 ? "/courses" : `/courses?page=${pageNum}`}
+                    className={`inline-flex items-center justify-center w-10 h-10 text-sm font-medium rounded-lg border transition-colors ${
+                      pageNum === currentPage
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-border bg-card hover:bg-muted"
+                    }`}
+                    aria-current={pageNum === currentPage ? "page" : undefined}
+                  >
+                    {pageNum}
+                  </Link>
+                ))}
               </div>
 
-              {/* Mobile Page Indicator */}
               <span className="sm:hidden text-sm text-muted-foreground px-4">
                 {currentPage} / {totalPages}
               </span>
 
-              {/* Next Button */}
               {currentPage < totalPages ? (
                 <Link
-                  href={`/problems?page=${currentPage + 1}`}
+                  href={`/courses?page=${currentPage + 1}`}
                   className="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg border border-border bg-card hover:bg-muted transition-colors"
                   rel="next"
                 >
@@ -332,22 +300,22 @@ export default async function ProblemsPage({ searchParams }: ProblemsPageProps) 
       <section className="py-16 sm:py-20 border-t border-border/50 bg-muted/30">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold sm:text-3xl">
-            <span className="text-foreground">Ready to </span>
-            <span className="gradient-text">Diagnose Your Car?</span>
+            <span className="text-foreground">Ready to Start </span>
+            <span className="gradient-text">Learning?</span>
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-            Download AI4Car and connect your OBD2 scanner to get real-time diagnostics, 
-            AI-powered analysis, and personalized repair recommendations.
+            Join thousands of students learning a new language with LinguaHub.
+            Create your free account and book your first lesson today.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" variant="glow">
-              <Link href="/downloads" className="flex items-center gap-2">
-                Open AI Diagnostic Tool
+              <Link href="/register" className="flex items-center gap-2">
+                Get Started Free
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
             <Button asChild variant="outline-glow-accent" size="lg">
-              <Link href="/pricing">Scan Your Car Now</Link>
+              <Link href="/pricing">View Pricing</Link>
             </Button>
           </div>
         </div>

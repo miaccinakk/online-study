@@ -1,19 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Cpu, Mail, Smartphone, Zap, Shield, Wifi } from "lucide-react";
+import { Languages, Mail, MessageCircle, Video, Award, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth-context";
 
 const footerLinksBase = {
   product: [
-    { href: "/downloads", label: "Download" },
-    { href: "/how-it-works", label: "How It Works" },
+    { href: "/courses", label: "Courses" },
     { href: "/pricing", label: "Pricing" },
-    { href: "/how-to-pay", label: "How to Pay" },
-    { href: "/problems", label: "Problems & Codes" },
+    { href: "/register", label: "Get Started" },
+    { href: "/about", label: "About Us" },
   ],
   companyGuest: [
     { href: "/", label: "Home" },
@@ -31,15 +29,6 @@ const footerLinksBase = {
     { href: "/sitemap-page", label: "Site Map" },
   ],
 };
-
-// Android icon component
-function AndroidIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-      <path d="M17.523 15.341c-.5 0-.906-.406-.906-.906s.406-.906.906-.906.906.406.906.906-.406.906-.906.906m-11.046 0c-.5 0-.906-.406-.906-.906s.406-.906.906-.906.906.406.906.906-.406.906-.906.906m11.4-6.057l1.959-3.391a.408.408 0 00-.706-.407l-1.983 3.435c-1.502-.686-3.189-1.07-4.999-1.07s-3.497.384-4.999 1.07L5.166 5.486a.408.408 0 00-.706.407l1.959 3.391C3.447 10.963 1.5 13.91 1.5 17.25h21c0-3.34-1.947-6.287-4.623-7.966" />
-    </svg>
-  );
-}
 
 interface FooterProps {
   hideCTA?: boolean;
@@ -74,19 +63,19 @@ export function Footer({ hideCTA = false }: FooterProps) {
               <div className="text-left">
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
                   <span className="text-foreground">Ready to </span>
-                  <span className="gradient-text">Transform</span>
+                  <span className="gradient-text">Start</span>
                   <br />
-                  <span className="text-foreground">Your Car Diagnostics?</span>
+                  <span className="text-foreground">Learning a Language?</span>
                 </h2>
                 <p className="mt-6 max-w-md text-lg text-muted-foreground">
-                  Join thousands of car owners already using AI4Car for
-                  intelligent vehicle diagnostics.
+                  Join thousands of students already learning with LinguaHub.
+                  Your first lessons are free.
                 </p>
                 <div className="mt-8">
                   <Button asChild size="lg" variant="glow">
-                    <Link href="/downloads" className="flex items-center gap-2">
-                      <AndroidIcon className="h-5 w-5" />
-                      Download for Android
+                    <Link href="/register" className="flex items-center gap-2">
+                      <Languages className="h-5 w-5" />
+                      Get Started Free
                     </Link>
                   </Button>
                 </div>
@@ -102,46 +91,46 @@ export function Footer({ hideCTA = false }: FooterProps) {
                       {/* App header */}
                       <div className="flex items-center gap-2 mb-4">
                         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                          <Cpu className="h-4 w-4" />
+                          <Languages className="h-4 w-4" />
                         </div>
                         <span className="text-sm font-semibold text-foreground">
-                          AI4Car
+                          LinguaHub
                         </span>
                       </div>
 
-                      {/* Scan visualization */}
+                      {/* Lesson visualization */}
                       <div className="space-y-3">
-                        {/* Connection status */}
+                        {/* Live status */}
                         <div className="flex items-center gap-2 rounded-lg bg-primary/10 p-3">
-                          <Wifi className="h-4 w-4 text-primary" />
+                          <Video className="h-4 w-4 text-primary" />
                           <span className="text-xs text-foreground">
-                            Connected to OBD2
+                            Live lesson starting
                           </span>
                           <div className="ml-auto h-2 w-2 animate-pulse rounded-full bg-primary" />
                         </div>
 
-                        {/* Error code card */}
+                        {/* Course card */}
                         <div className="rounded-lg border border-border/50 bg-card/50 p-3">
                           <div className="text-xs text-muted-foreground mb-1">
-                            Error Found
+                            Today&apos;s Course
                           </div>
                           <div className="font-mono text-lg font-bold text-primary">
-                            P0420
+                            FR
                           </div>
                           <div className="text-xs text-muted-foreground mt-1">
-                            Catalyst System Efficiency
+                            French - Conversation
                           </div>
                         </div>
 
-                        {/* AI analysis indicator */}
+                        {/* Progress indicator */}
                         <div className="flex items-center gap-2 rounded-lg bg-accent/10 p-3">
-                          <Zap className="h-4 w-4 text-accent" />
+                          <Award className="h-4 w-4 text-accent" />
                           <div className="flex-1">
                             <div className="text-xs font-medium text-foreground">
-                              AI Analysis
+                              Your Progress
                             </div>
                             <div className="text-xs text-muted-foreground">
-                              Processing...
+                              Level B1 - 68%
                             </div>
                           </div>
                         </div>
@@ -149,12 +138,12 @@ export function Footer({ hideCTA = false }: FooterProps) {
                         {/* Features list */}
                         <div className="flex items-center justify-between pt-2">
                           <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                            <Shield className="h-3 w-3 text-primary" />
-                            <span>Secure</span>
+                            <MessageCircle className="h-3 w-3 text-primary" />
+                            <span>Speaking</span>
                           </div>
                           <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                            <Smartphone className="h-3 w-3 text-primary" />
-                            <span>Android</span>
+                            <Globe className="h-3 w-3 text-primary" />
+                            <span>Native</span>
                           </div>
                         </div>
                       </div>
@@ -183,29 +172,23 @@ export function Footer({ hideCTA = false }: FooterProps) {
             {/* Brand */}
             <div className="col-span-2 md:col-span-1">
               <Link href="/" className="flex items-center gap-2">
-                <div className="relative h-10 w-10">
-                  <Image
-                    src="/logo.svg"
-                    alt="AI4Car Logo"
-                    width={40}
-                    height={40}
-                    className="object-contain"
-                  />
+                <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                  <Languages className="h-5 w-5" />
                 </div>
                 <span className="text-lg font-bold text-foreground">
-                  AI4<span className="text-primary">Car</span>
+                  Lingua<span className="text-primary">Hub</span>
                 </span>
               </Link>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                Smart OBD2 scanner with AI analytics for vehicle diagnostics.
+                Online language school with live lessons and native teachers.
               </p>
               <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary" />
                 <a
-                  href="mailto:support@ai4car.com"
+                  href="mailto:hello@linguahub.app"
                   className="transition-colors hover:text-primary"
                 >
-                  support@ai4car.com
+                  hello@linguahub.app
                 </a>
               </div>
             </div>
@@ -266,7 +249,7 @@ export function Footer({ hideCTA = false }: FooterProps) {
             {/* Subtle separator */}
             <div className="mb-8 h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
             <p className="text-center text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} AI4Car. All rights reserved.
+              &copy; {new Date().getFullYear()} LinguaHub. All rights reserved.
             </p>
           </div>
         </div>
