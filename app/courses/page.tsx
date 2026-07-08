@@ -37,7 +37,7 @@ export default function CoursesPage() {
         <div className="absolute inset-0 isometric-grid opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
 
-        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+        <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
           <div className="grid items-end gap-8 lg:grid-cols-2 lg:gap-16">
             <div className="flex flex-col items-start text-left">
               <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground mb-6">
@@ -45,13 +45,12 @@ export default function CoursesPage() {
                 <span>Live lessons with native teachers</span>
               </div>
 
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                <span className="text-foreground">Our Language</span>
-                <br />
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+                <span className="text-foreground">Our Language </span>
                 <span className="gradient-text">Courses</span>
               </h1>
 
-              <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+              <p className="mt-4 max-w-xl text-lg text-muted-foreground">
                 Choose a language and start speaking from your very first lesson.
                 Every course is built around real conversation, small groups, and
                 friendly, expert teachers.
@@ -75,7 +74,7 @@ export default function CoursesPage() {
           </div>
 
           {/* Search Bar */}
-          <div className="mt-10">
+          <div className="mt-8">
             <form action="/courses/search" method="GET" className="relative">
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
@@ -99,7 +98,7 @@ export default function CoursesPage() {
       </section>
 
       {/* Catalog: category filters + all courses */}
-      <section className="py-16 sm:py-20" aria-labelledby="all-courses-heading">
+      <section className="py-10 sm:py-12" aria-labelledby="all-courses-heading">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 id="all-courses-heading" className="text-2xl font-bold sm:text-3xl">

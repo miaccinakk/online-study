@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, BookOpen, ListChecks, Trophy, Link2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -61,7 +62,7 @@ export default async function CoursePage({ params }: PageProps) {
     <div className="min-h-screen bg-background">
       {/* Breadcrumb */}
       <div className="border-b border-border/50 bg-muted/30">
-        <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
             <Link href="/courses" className="hover:text-primary transition-colors">
               Courses
@@ -79,37 +80,52 @@ export default async function CoursePage({ params }: PageProps) {
         </div>
       </div>
 
-      <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        {/* Back link */}
-        <Link
-          href="/courses"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to all courses
-        </Link>
+      {/* Photo Hero */}
+      <header className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={course.image || "/placeholder.svg"}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          {/* Theme-toned overlays for legibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/95 via-foreground/70 to-foreground/45" />
+          <div className="absolute inset-0 bg-primary/15 mix-blend-multiply" />
+        </div>
 
-        {/* Header */}
-        <header className="mb-12">
-          {course.code && (
-            <span className="inline-block font-mono text-2xl font-bold text-primary mb-4">
-              {course.code}
-            </span>
-          )}
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
-            {course.title}
-          </h1>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            {course.description}
-          </p>
+        <div className="relative mx-auto flex min-h-[420px] max-w-6xl flex-col justify-end px-4 py-12 sm:min-h-[480px] sm:px-6 sm:py-16 lg:px-8">
+          <Link
+            href="/courses"
+            className="inline-flex w-fit items-center gap-2 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors mb-8"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to all courses
+          </Link>
 
-          <div className="mt-6 flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
+          <div className="flex flex-wrap items-center gap-3 mb-5">
+            {course.code && (
+              <span className="inline-flex items-center rounded-lg bg-primary px-3 py-1 font-mono text-lg font-bold text-primary-foreground">
+                {course.code}
+              </span>
+            )}
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-foreground/15 px-3 py-1 text-sm font-medium text-primary-foreground backdrop-blur-sm">
               {category.name}
             </span>
           </div>
-        </header>
 
+          <h1 className="max-w-3xl text-balance text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl lg:text-6xl">
+            {course.title}
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/85">
+            {course.description}
+          </p>
+        </div>
+      </header>
+
+      <article className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         {/* What You'll Learn */}
         <section className="mb-12" aria-labelledby="learn-heading">
           <div className="flex items-center gap-3 mb-6">
