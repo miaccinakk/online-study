@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { problems, categories, type ProblemCategory } from "@/lib/problems-data";
+import { courses, categories, type CourseCategory } from "@/lib/courses-data";
 
 export const metadata: Metadata = {
   alternates: {
     canonical: "/sitemap-page",
   },
-  title: "Site Map - AI4Car OBD2 Scanner",
+  title: "Site Map - LinguaHub Online Language School",
   description:
-    "Complete site map of AI4Car - navigate to all pages including downloads, pricing, how it works, contact, and more.",
+    "Complete site map of LinguaHub - navigate to all pages including courses, pricing, how it works, contact, and more.",
   openGraph: {
-    title: "Site Map - AI4Car",
-    description: "Navigate to all pages of AI4Car OBD2 Scanner application.",
+    title: "Site Map - LinguaHub",
+    description: "Navigate to all pages of the LinguaHub online language school.",
   },
 };
 
@@ -19,16 +19,16 @@ const siteMapSections = [
   {
     title: "Main",
     links: [
-      { href: "/", label: "Home", description: "Welcome to AI4Car - AI-powered OBD2 scanner" },
-      { href: "/about", label: "About", description: "Learn more about AI4Car and our mission" },
+      { href: "/", label: "Home", description: "Welcome to LinguaHub - learn a new language online" },
+      { href: "/about", label: "About", description: "Learn more about LinguaHub and our mission" },
       { href: "/contact", label: "Contact", description: "Get in touch with our support team" },
     ],
   },
   {
-    title: "Product",
+    title: "Learn",
     links: [
-      { href: "/downloads", label: "Downloads", description: "Download AI4Car app for Android" },
-      { href: "/how-it-works", label: "How It Works", description: "Learn how AI4Car diagnoses your vehicle" },
+      { href: "/courses", label: "Courses", description: "Browse all language courses" },
+      { href: "/how-it-works", label: "How It Works", description: "Learn how lessons at LinguaHub work" },
       { href: "/pricing", label: "Pricing", description: "View our subscription plans and features" },
       { href: "/how-to-pay", label: "How to Pay", description: "Payment methods and subscription guide" },
     ],
@@ -36,8 +36,8 @@ const siteMapSections = [
   {
     title: "Account",
     links: [
-      { href: "/login", label: "Login", description: "Sign in to your AI4Car account" },
-      { href: "/register", label: "Register", description: "Create a new AI4Car account" },
+      { href: "/login", label: "Login", description: "Sign in to your LinguaHub account" },
+      { href: "/register", label: "Register", description: "Create a new LinguaHub account" },
       { href: "/forgot-password", label: "Forgot Password", description: "Reset your account password" },
     ],
   },
@@ -66,7 +66,7 @@ export default function SiteMapPage() {
                 Site <span className="gradient-text">Map</span>
               </h1>
               <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-                Navigate to any page on AI4Car. Find downloads, pricing, support, and more.
+                Navigate to any page on LinguaHub. Find courses, pricing, support, and more.
               </p>
             </div>
           </div>
@@ -104,24 +104,24 @@ export default function SiteMapPage() {
           </div>
         </section>
 
-        {/* Problems Section */}
+        {/* Courses Section */}
         <section className="pb-20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <h2 className="mb-6 text-2xl font-bold text-foreground">
-              Popular Problems & OBD2 Codes
+              Language Courses
             </h2>
             
-            {/* Main Problems Page */}
+            {/* Main Courses Page */}
             <div className="mb-8">
               <Link
-                href="/problems"
+                href="/courses"
                 className="group block rounded-lg border border-border/50 p-4 transition-all hover:border-primary/50 hover:bg-card/50"
               >
                 <span className="font-medium text-foreground transition-colors group-hover:text-primary">
-                  All Problems & Error Codes
+                  All Courses
                 </span>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Browse all {problems.length} OBD2 error codes with AI-powered explanations
+                  Browse all {courses.length} language courses with live lessons and native teachers
                 </p>
               </Link>
             </div>
@@ -129,40 +129,42 @@ export default function SiteMapPage() {
             {/* Categories */}
             <h3 className="mb-4 text-lg font-semibold text-foreground">Browse by Category</h3>
             <div className="mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {(Object.keys(categories) as ProblemCategory[]).map((key) => {
+              {(Object.keys(categories) as CourseCategory[]).map((key) => {
                 const category = categories[key];
-                const count = problems.filter((p) => p.category === key).length;
+                const count = courses.filter((c) => c.category === key).length;
                 return (
                   <Link
                     key={key}
-                    href={`/problems/category/${key}`}
+                    href={`/courses/category/${key}`}
                     className="group block rounded-lg border border-transparent p-3 transition-all hover:border-border/50 hover:bg-card/50"
                   >
                     <span className="font-medium text-foreground transition-colors group-hover:text-primary">
                       {category.name}
                     </span>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      {count} articles
+                      {count} {count === 1 ? "course" : "courses"}
                     </p>
                   </Link>
                 );
               })}
             </div>
 
-            {/* All Problem Articles */}
-            <h3 className="mb-4 text-lg font-semibold text-foreground">All Error Code Articles</h3>
+            {/* All Course Articles */}
+            <h3 className="mb-4 text-lg font-semibold text-foreground">All Courses</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-              {problems.map((problem) => (
+              {courses.map((course) => (
                 <Link
-                  key={problem.slug}
-                  href={`/problems/${problem.slug}`}
+                  key={course.slug}
+                  href={`/courses/${course.slug}`}
                   className="group block rounded-lg border border-transparent px-3 py-2 transition-all hover:border-border/50 hover:bg-card/50"
                 >
-                  <span className="font-mono text-sm font-bold text-primary">
-                    {problem.code}
-                  </span>
+                  {course.code && (
+                    <span className="font-mono text-sm font-bold text-primary">
+                      {course.code}
+                    </span>
+                  )}
                   <span className="ml-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                    {problem.title.split(":")[1]?.trim().slice(0, 30) || problem.title.slice(0, 30)}...
+                    {course.title.split(":")[0]?.trim().slice(0, 30) || course.title.slice(0, 30)}
                   </span>
                 </Link>
               ))}

@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Get contact email from environment variable
-    const contactEmail = process.env.NV_CONTACT_EMAIL || "support@ai4car.com";
+    const contactEmail = process.env.NV_CONTACT_EMAIL || "support@linguahub.app";
 
     // Here you would typically integrate with an email service like:
     // - Resend

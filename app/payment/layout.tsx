@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Payment",
-  description: "AI4Car payment processing.",
+  description: "LinguaHub payment processing.",
   robots: {
     index: false,
     follow: false,

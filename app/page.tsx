@@ -8,23 +8,23 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "AI4Car - OBD2 Scanner App for Android | Car Diagnostic App",
+  title: "LinguaHub - Online Language School | Learn English, French, Spanish & German",
   description:
-    "AI4Car is the best OBD2 scanner app for Android. Scan car errors instantly, read fault codes, and get AI-powered vehicle diagnostics via Bluetooth or Wi-Fi. Download the car diagnostic app now.",
+    "LinguaHub is an online language school with live lessons and native teachers. Learn English, French, Spanish, or German with conversation-first courses for every level. Start free today.",
   keywords: [
-    "obd2 scanner app",
-    "car diagnostic app",
-    "obd2 scanner for android",
-    "scan car errors",
-    "check engine scanner app",
-    "car fault code reader",
-    "obd2 bluetooth scanner app",
-    "vehicle diagnostics app",
-    "obd2 app download",
+    "online language school",
+    "learn english online",
+    "learn french online",
+    "learn spanish online",
+    "learn german online",
+    "live language lessons",
+    "native language teachers",
+    "online language courses",
+    "language classes online",
   ],
   openGraph: {
-    title: "AI4Car - Best OBD2 Scanner App for Android",
-    description: "Scan car errors, read fault codes, and get AI-powered diagnostics. The #1 OBD2 scanner app for Android. Download free today.",
+    title: "LinguaHub - Online Language School",
+    description: "Learn a new language online with live lessons and native teachers. Courses in English, French, Spanish, and German. Start free today.",
   },
 };
 

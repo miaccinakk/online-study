@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   },
   title: "Terms of Service",
   description:
-    "AI4Car Terms of Service. Read about user accounts, acceptable use, subscription policies, and liability limitations.",
+    "LinguaHub Terms of Service. Read about user accounts, acceptable use, subscription policies, and liability limitations.",
   openGraph: {
-    title: "Terms of Service - AI4Car",
-    description: "Terms and conditions for using AI4Car OBD2 diagnostics service.",
+    title: "Terms of Service - LinguaHub",
+    description: "Terms and conditions for using the LinguaHub online language school.",
   },
 };
 
@@ -34,7 +34,7 @@ export default function TermsOfServicePage() {
               1. Acceptance of Terms
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              By accessing or using the AI4Car application and services, you agree
+              By accessing or using the LinguaHub platform and services, you agree
               to be bound by these Terms of Service. If you do not agree to these
               terms, please do not use our services.
             </p>
@@ -45,10 +45,9 @@ export default function TermsOfServicePage() {
               2. Description of Service
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              AI4Car provides OBD2 vehicle diagnostic services enhanced with
-              artificial intelligence analysis. Our service reads diagnostic
-              trouble codes from your vehicle and provides AI-powered
-              interpretations and recommendations.
+              LinguaHub provides online language education services, including
+              live group lessons with native teachers, interactive exercises, and
+              learning materials in English, French, Spanish, and German.
             </p>
           </section>
 
@@ -73,11 +72,10 @@ export default function TermsOfServicePage() {
               4. Disclaimer of Warranties
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              AI4Car is provided &quot;as is&quot; without any warranties, express or
-              implied. The diagnostic information provided by our service is for
-              informational purposes only and should not be considered as
-              professional automotive advice. Always consult a qualified mechanic
-              for vehicle repairs and maintenance.
+              LinguaHub is provided &quot;as is&quot; without any warranties, express or
+              implied. While our teachers and materials are designed to help you
+              learn effectively, individual results and progress may vary
+              depending on your effort, attendance, and practice.
             </p>
           </section>
 
@@ -86,11 +84,9 @@ export default function TermsOfServicePage() {
               5. Limitation of Liability
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              AI4Car shall not be liable for any indirect, incidental, special,
+              LinguaHub shall not be liable for any indirect, incidental, special,
               consequential, or punitive damages resulting from your use of or
-              inability to use the service. We are not responsible for any damage
-              to your vehicle that may result from actions taken based on our
-              diagnostic information.
+              inability to use the service.
             </p>
           </section>
 
@@ -116,7 +112,7 @@ export default function TermsOfServicePage() {
               7. Subscription and Payments
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Some features of AI4Car require a paid subscription. By subscribing,
+              Some features of LinguaHub require a paid subscription. By subscribing,
               you agree to pay all applicable fees. Subscriptions automatically
               renew unless canceled before the renewal date. Refunds are handled
               according to our refund policy.
@@ -128,9 +124,9 @@ export default function TermsOfServicePage() {
               8. Intellectual Property
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              All content, features, and functionality of AI4Car, including but not
-              limited to text, graphics, logos, and software, are the exclusive
-              property of AI4Car and are protected by intellectual property laws.
+              All content, features, and functionality of LinguaHub, including but not
+              limited to text, graphics, logos, lesson materials, and software, are the
+              exclusive property of LinguaHub and are protected by intellectual property laws.
             </p>
           </section>
 
@@ -177,10 +173,10 @@ export default function TermsOfServicePage() {
               If you have any questions about these Terms of Service, please
               contact us at{" "}
               <a
-                href="mailto:support@ai4car.com"
+                href="mailto:hello@linguahub.app"
                 className="text-primary hover:text-primary/80 transition-colors"
               >
-                support@ai4car.com
+                hello@linguahub.app
               </a>
               .
             </p>

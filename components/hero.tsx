@@ -83,14 +83,24 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Subtle link to pricing */}
-            <Link
-              href="/pricing"
-              className="mt-6 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              See our simple pricing
-              <ChevronRight className="h-3.5 w-3.5" />
-            </Link>
+            {/* Quick links to individual courses */}
+            <div className="mt-8 flex flex-col gap-2">
+              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                Explore courses
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {languages.map((lang) => (
+                  <Link
+                    key={lang.code}
+                    href={`/courses/${lang.name.toLowerCase()}-course`}
+                    className="inline-flex items-center gap-1 rounded-full border border-border/50 bg-card/60 px-4 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                  >
+                    {lang.name}
+                    <ChevronRight className="h-3.5 w-3.5" />
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Right - Language cards visualization - hidden on mobile */}

@@ -224,10 +224,10 @@ export default function ContactPage() {
               You can also reach us at
             </p>
             <a
-              href="mailto:support@ai4car.com"
+              href="mailto:support@linguahub.app"
               className="text-primary hover:text-primary/80 transition-colors"
             >
-              support@ai4car.com
+              support@linguahub.app
             </a>
           </div>
         </div>

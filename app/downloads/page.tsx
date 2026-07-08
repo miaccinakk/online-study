@@ -13,9 +13,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/downloads",
   },
-  title: "Download AI4Car - OBD2 Scanner App",
+  title: "Download LinguaHub - Language Learning App",
   description:
-    "Download the AI4Car app for Android. Available on Google Play or direct APK.",
+    "Download the LinguaHub app for Android and learn languages anywhere. Available on Google Play or direct APK.",
 };
 
 // Android icon SVG component
@@ -43,7 +43,7 @@ const downloadOptions = [
     platformIcon: AndroidIcon,
     description: "Direct APK download for manual installation",
     buttonText: "Download APK",
-    href: "https://github.com/ai4car/ai4car/raw/main/ai4car.apk",
+    href: "https://github.com/linguahub/linguahub/raw/main/linguahub.apk",
     recommended: true,
     disabled: false,
     size: "80+ MB",
@@ -65,8 +65,8 @@ const downloadOptions = [
 
 const requirements = [
   "Android 8.0 or newer",
-  "Bluetooth 4.0+ or Wi-Fi",
-  "OBD2-compatible adapter (ELM327)",
+  "Stable internet connection",
+  "Microphone for speaking practice",
   "80+ MB free space",
 ];
 
@@ -74,22 +74,22 @@ const steps = [
   {
     step: 1,
     title: "Download the App",
-    description: "Get AI4Car from Google Play or install the APK",
+    description: "Get LinguaHub from Google Play or install the APK",
   },
   {
     step: 2,
-    title: "Connect the Adapter",
-    description: "Insert OBD2 adapter into your vehicle diagnostic port",
+    title: "Create Your Account",
+    description: "Sign up and choose the language you want to learn",
   },
   {
     step: 3,
-    title: "Connect via Bluetooth",
-    description: "Open the app and connect to the adapter",
+    title: "Take a Placement Test",
+    description: "Find your level and get a personalized learning path",
   },
   {
     step: 4,
-    title: "Start Scanning",
-    description: "Run diagnostics and get AI analysis of errors",
+    title: "Start Learning",
+    description: "Join live lessons and practice with native teachers",
   },
 ];
 

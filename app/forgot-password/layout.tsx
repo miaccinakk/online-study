@@ -7,10 +7,10 @@ export const metadata: Metadata = {
   },
   title: "Forgot Password",
   description:
-    "Reset your AI4Car account password. Enter your email to receive password reset instructions.",
+    "Reset your LinguaHub account password. Enter your email to receive password reset instructions.",
   openGraph: {
-    title: "Forgot Password - AI4Car",
-    description: "Reset your AI4Car account password.",
+    title: "Forgot Password - LinguaHub",
+    description: "Reset your LinguaHub account password.",
   },
 };
 
