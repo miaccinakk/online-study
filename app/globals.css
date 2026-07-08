@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+
+  /* Light milky/cream theme with soft blue and green accents */
+  --color-background: oklch(0.97 0.005 80);
+  --color-foreground: oklch(0.20 0.02 260);
+  --color-muted: oklch(0.94 0.008 80);
+  --color-muted-foreground: oklch(0.45 0.02 260);
+  --color-border: oklch(0.88 0.01 260);
+  --color-input: oklch(0.95 0.005 80);
+  --color-ring: oklch(0.55 0.15 160);
+
+  /* Primary - Soft teal/green */
+  --color-primary: oklch(0.55 0.14 165);
+  --color-primary-foreground: oklch(0.99 0 0);
+  
+  /* Secondary - Soft blue */
+  --color-secondary: oklch(0.92 0.01 240);
+  --color-secondary-foreground: oklch(0.35 0.08 240);
+  
+  /* Accent - Soft blue */
+  --color-accent: oklch(0.55 0.12 240);
+  --color-accent-foreground: oklch(0.99 0 0);
+  
+  --color-destructive: oklch(0.55 0.18 25);
+  --color-destructive-foreground: oklch(1 0 0);
+
+  /* Card - White with subtle warmth */
+  --color-card: oklch(0.995 0.003 80);
+  --color-card-foreground: oklch(0.22 0.02 260);
+  --color-popover: oklch(0.995 0.003 80);
+  --color-popover-foreground: oklch(0.22 0.02 260);
+
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Glow effects for light theme */
+@layer utilities {
+  .glow-primary {
+    box-shadow: 0 4px 20px oklch(0.55 0.14 165 / 0.25), 0 2px 8px oklch(0.55 0.14 165 / 0.15);
+  }
+  
+  .glow-accent {
+    box-shadow: 0 4px 20px oklch(0.55 0.12 240 / 0.25), 0 2px 8px oklch(0.55 0.12 240 / 0.15);
+  }
+  
+  .glow-line {
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, oklch(0.55 0.14 165), oklch(0.55 0.12 240));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Animated gradient border */
+@keyframes gradient-flow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@layer utilities {
+  .animated-border {
+    background: linear-gradient(90deg, oklch(0.55 0.14 165), oklch(0.55 0.12 240), oklch(0.55 0.14 165));
+    background-size: 200% 200%;
+    animation: gradient-flow 3s ease infinite;
+  }
+}
+
+/* Subtle grid background for light theme */
+@layer utilities {
+  .isometric-grid {
+    background-image: 
+      linear-gradient(oklch(0.85 0.015 200 / 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.85 0.015 200 / 0.35) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+}
