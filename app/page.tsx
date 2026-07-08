@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
 import { HowItWorks } from "@/components/how-it-works";
-import { PricingPreview } from "@/components/pricing-preview";
+import { CoursesPreview } from "@/components/courses-preview";
+import { StudentStories } from "@/components/student-stories";
 
 export const metadata: Metadata = {
   alternates: {
@@ -34,7 +35,8 @@ export default function HomePage() {
       <Hero />
       <Features />
       <HowItWorks />
-      <PricingPreview />
+      <CoursesPreview />
+      <StudentStories />
     </>
   );
 }
