@@ -3,7 +3,7 @@ import DashboardClientLayout from "./client-layout";
 
 export const metadata: Metadata = {
   title: "Dashboard",
-  description: "Your AI4Car dashboard - manage your vehicles, view diagnostics history, and access AI-powered insights.",
+  description: "Your LinguaHub dashboard - manage your courses, track your learning progress, and access your lessons.",
   robots: {
     index: false,
     follow: false,

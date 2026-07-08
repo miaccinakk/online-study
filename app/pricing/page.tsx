@@ -8,9 +8,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/pricing",
   },
-  title: "Pricing - AI4Car OBD2 Scanner",
+  title: "Pricing - LinguaHub Online Language School",
   description:
-    "Choose the right AI4Car plan. Free, Pro ($15/mo), or Premium ($25/mo) with token-based AI diagnostics, live vehicle data, and OBD2 scanner features.",
+    "Choose the right LinguaHub plan. Free, Pro ($15/mo), or Premium ($25/mo) with live group lessons, native teachers, one-on-one classes, and certificates.",
 };
 
 const tiers = [
@@ -18,26 +18,25 @@ const tiers = [
     name: "Free",
     price: "$0",
     period: null,
-    description: "Basic features to get started with OBD2 diagnostics",
+    description: "Everything you need to try your first language lessons",
     buttonText: "Start Free",
     buttonVariant: "outline" as const,
     highlighted: false,
     disabled: false,
     href: "/dashboard",
     features: [
-      "Basic error scanning",
-      "Read OBD2 codes",
-      "Reset Check Engine light",
-      "3 full scans per month",
-      "4 visible Live Data PIDs",
-      "1K AI tokens",
+      "Access to 1 language",
+      "2 live group lessons per month",
+      "Interactive practice exercises",
+      "Basic progress tracking",
+      "Community study groups",
     ],
   },
   {
     name: "Pro",
     price: "$15",
     period: "month",
-    description: "Advanced tools for car enthusiasts",
+    description: "For motivated learners who want steady progress",
     buttonText: "Choose Pro",
     buttonVariant: "glow" as const,
     highlighted: true,
@@ -45,18 +44,18 @@ const tiers = [
     href: "/dashboard/subscription",
     features: [
       "All Free plan features",
-      "Unlimited full scans",
-      "20 visible Live Data PIDs",
-      "1M AI tokens",
-      "20 sec voice messages",
-      "3 vehicles in garage",
+      "Access to all 4 languages",
+      "Unlimited live group lessons",
+      "Downloadable lesson materials",
+      "Detailed progress tracking",
+      "Course completion certificates",
     ],
   },
   {
     name: "Premium",
     price: "$25",
     period: "month",
-    description: "Maximum AI analytics capabilities for professionals",
+    description: "Fastest results with personal one-on-one attention",
     buttonText: "Choose Premium",
     buttonVariant: "accent" as const,
     highlighted: false,
@@ -64,82 +63,82 @@ const tiers = [
     href: "/dashboard/subscription",
     features: [
       "All Pro plan features",
-      "Unlimited Live Data PIDs",
-      "5M AI tokens",
-      "30 sec voice messages",
-      "5 vehicles in garage",
+      "4 one-on-one lessons per month",
+      "Personalized learning plan",
+      "Priority teacher support",
+      "Exam preparation courses",
     ],
   },
 ];
 
 const features = [
   {
-    name: "Basic error scanning",
-    free: true,
-    pro: true,
-    premium: true,
-  },
-  {
-    name: "Read OBD2 codes",
-    free: true,
-    pro: true,
-    premium: true,
-  },
-  {
-    name: "Reset Check Engine light",
-    free: true,
-    pro: true,
-    premium: true,
-  },
-  {
-    name: "Full scans per month",
-    free: "3",
+    name: "Live group lessons per month",
+    free: "2",
     pro: "Unlimited",
     premium: "Unlimited",
   },
   {
-    name: "Live Data / PID monitoring",
-    free: true,
-    pro: true,
-    premium: true,
+    name: "One-on-one lessons per month",
+    free: false,
+    pro: false,
+    premium: "4",
   },
   {
-    name: "Visible Live Data PIDs",
-    free: "4",
-    pro: "20",
-    premium: "Unlimited",
-  },
-  {
-    name: "AI assistant token budget",
-    free: "1K",
-    pro: "1M",
-    premium: "5M",
-  },
-  {
-    name: "Voice message duration",
-    free: "10 sec",
-    pro: "20 sec",
-    premium: "30 sec",
-  },
-  {
-    name: "Diagnostic console",
-    free: true,
-    pro: true,
-    premium: true,
-  },
-  {
-    name: "Vehicles in garage",
+    name: "Languages available",
     free: "1",
-    pro: "3",
-    premium: "5",
+    pro: "All 4",
+    premium: "All 4",
+  },
+  {
+    name: "Interactive practice exercises",
+    free: true,
+    pro: true,
+    premium: true,
+  },
+  {
+    name: "Downloadable lesson materials",
+    free: false,
+    pro: true,
+    premium: true,
+  },
+  {
+    name: "Progress tracking",
+    free: "Basic",
+    pro: "Detailed",
+    premium: "Detailed",
+  },
+  {
+    name: "Course completion certificates",
+    free: false,
+    pro: true,
+    premium: true,
+  },
+  {
+    name: "Exam preparation courses",
+    free: false,
+    pro: false,
+    premium: true,
+  },
+  {
+    name: "Priority teacher support",
+    free: false,
+    pro: false,
+    premium: true,
+  },
+  {
+    name: "Community study groups",
+    free: true,
+    pro: true,
+    premium: true,
   },
 ];
 
 const faqs = [
   {
-    question: "What adapter do I need?",
+    question: "What do I need to join lessons?",
     answer:
-      "AI4Car is compatible with any ELM327-compatible OBD2 adapter. We recommend using Bluetooth 4.0+ adapters for best performance.",
+      "Just a stable internet connection and a device with a camera and microphone, such as a laptop, tablet, or phone. Lessons run right in your browser, so there is nothing to install.",
   },
   {
     question: "Can I change my plan?",
@@ -147,9 +146,9 @@ const faqs = [
       "Yes, you can switch plans at any time. When upgrading, changes take effect immediately. When downgrading, changes apply in the next billing period.",
   },
   {
-    question: "What is the AI token budget?",
+    question: "Do I need any experience to start?",
     answer:
-      "AI features use token-based usage instead of request limits. Tokens are consumed when you use AI diagnostics, error code explanations, and the AI assistant. Higher plans include more tokens for extended AI usage.",
+      "Not at all. Our courses welcome complete beginners as well as learners who want to improve. During sign-up we help you find the right level so you feel comfortable from your first lesson.",
   },
   {
     question: "Is there a refund policy?",
@@ -334,9 +333,9 @@ export default function PricingPage() {
               <HelpCircle className="h-4 w-4 text-primary" />
             </div>
             <div>
-              <p className="text-sm font-medium text-foreground">About AI Token Usage</p>
+              <p className="text-sm font-medium text-foreground">About Live Lessons</p>
               <p className="mt-1 text-sm text-muted-foreground">
-                AI features use token-based usage instead of request limits. Tokens are consumed when using AI diagnostics, error code explanations, and the AI assistant. Token budgets reset monthly with your billing cycle.
+                Live lessons are hosted online with native teachers in small groups. Group lesson allowances reset monthly with your billing cycle, and Premium members can book one-on-one lessons for personalized practice.
               </p>
             </div>
           </div>

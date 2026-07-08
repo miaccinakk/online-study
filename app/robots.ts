@@ -15,7 +15,7 @@ export default function robots(): MetadataRoute.Robots {
           "/auth/mobile-bridge",
           "/payment/",
           // Search results pages (dynamic content)
-          "/problems/search",
+          "/courses/search",
           // Query parameters that create duplicate content
           "/*?ref=*",
           "/*?page=*",
@@ -25,6 +25,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: "https://ai4car.app/sitemap.xml",
+    sitemap: "https://linguahub.app/sitemap.xml",
   };
 }

@@ -7,10 +7,10 @@ export const metadata: Metadata = {
   },
   title: "Sign In",
   description:
-    "Sign in to your AI4Car account to access your vehicle diagnostics dashboard and AI-powered analysis tools.",
+    "Sign in to your LinguaHub account to access your language courses, live lessons, and learning dashboard.",
   openGraph: {
-    title: "Sign In - AI4Car",
-    description: "Access your AI4Car account and vehicle diagnostics.",
+    title: "Sign In - LinguaHub",
+    description: "Access your LinguaHub account and language courses.",
   },
 };
 

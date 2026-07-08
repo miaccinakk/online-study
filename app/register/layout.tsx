@@ -7,10 +7,10 @@ export const metadata: Metadata = {
   },
   title: "Create Account",
   description:
-    "Create a free AI4Car account to start diagnosing your vehicle with AI-powered OBD2 scanning technology.",
+    "Create a free LinguaHub account to start learning English, French, Spanish, or German with live lessons and native teachers.",
   openGraph: {
-    title: "Create Account - AI4Car",
-    description: "Join AI4Car and start diagnosing your vehicle today.",
+    title: "Create Account - LinguaHub",
+    description: "Join LinguaHub and start learning a new language today.",
   },
 };
 

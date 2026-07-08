@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   },
   title: "Privacy Policy",
   description:
-    "AI4Car Privacy Policy. Learn how we collect, use, and protect your personal information and vehicle diagnostic data.",
+    "LinguaHub Privacy Policy. Learn how we collect, use, and protect your personal information as you learn languages with us.",
   openGraph: {
-    title: "Privacy Policy - AI4Car",
-    description: "How AI4Car handles your data and protects your privacy.",
+    title: "Privacy Policy - LinguaHub",
+    description: "How LinguaHub handles your data and protects your privacy.",
   },
 };
 
@@ -34,10 +34,9 @@ export default function PrivacyPolicyPage() {
               1. Introduction
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              AI4Car (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your
+              LinguaHub (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your
               privacy. This Privacy Policy explains how we collect, use, disclose,
-              and safeguard your information when you use our mobile application
-              and website.
+              and safeguard your information when you use our platform and website.
             </p>
           </section>
 
@@ -54,13 +53,13 @@ export default function PrivacyPolicyPage() {
                 name, and other contact information you provide during registration.
               </li>
               <li>
-                <strong className="text-foreground">Vehicle Data:</strong> Diagnostic codes,
-                vehicle information, and error reports obtained through OBD2
-                connections.
+                <strong className="text-foreground">Learning Data:</strong> Your chosen
+                languages, course level, lesson attendance, and progress within our
+                courses.
               </li>
               <li>
                 <strong className="text-foreground">Usage Data:</strong> Information about
-                how you use our application, including features accessed and time
+                how you use our platform, including features accessed and time
                 spent.
               </li>
               <li>
@@ -79,7 +78,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-4">
               <li>To provide and maintain our service</li>
-              <li>To provide AI-powered diagnostic analysis</li>
+              <li>To deliver lessons and track your learning progress</li>
               <li>To notify you about changes to our service</li>
               <li>To provide customer support</li>
               <li>To improve our application and user experience</li>
@@ -168,10 +167,10 @@ export default function PrivacyPolicyPage() {
               If you have any questions about this Privacy Policy, please contact
               us at{" "}
               <a
-                href="mailto:support@ai4car.com"
+                href="mailto:hello@linguahub.app"
                 className="text-primary hover:text-primary/80 transition-colors"
               >
-                support@ai4car.com
+                hello@linguahub.app
               </a>
               .
             </p>

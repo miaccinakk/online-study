@@ -82,7 +82,7 @@ export function InvoiceDetailModal({
       <!DOCTYPE html>
       <html>
         <head>
-          <title>Invoice #${currentInvoice.id} - AI4Car</title>
+          <title>Invoice #${currentInvoice.id} - LinguaHub</title>
           <style>
             * {
               margin: 0;
@@ -232,7 +232,7 @@ export function InvoiceDetailModal({
         </head>
         <body>
           <div class="invoice-header">
-            <div class="logo">AI4Car</div>
+            <div class="logo">LinguaHub</div>
             <div class="invoice-title">
               <h1>INVOICE</h1>
               <p class="invoice-number">#${currentInvoice.id.toString().padStart(6, "0")}</p>
@@ -287,7 +287,7 @@ export function InvoiceDetailModal({
           
           <div class="footer">
             <p>Thank you for your business!</p>
-            <p>AI4Car - AI-Powered Vehicle Diagnostics</p>
+            <p>LinguaHub - Online Language School</p>
           </div>
         </body>
       </html>

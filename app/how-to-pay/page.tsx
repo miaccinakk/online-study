@@ -18,10 +18,10 @@ export const metadata: Metadata = {
   },
   title: "How to Pay",
   description:
-    "Learn how to subscribe to AI4Car plans. Free, Pro ($15/mo), or Premium ($25/mo) with token-based AI diagnostics. Payment guide and refund policy.",
+    "Learn how to subscribe to LinguaHub plans. Free, Pro ($15/mo), or Premium ($25/mo) language courses with live lessons. Payment guide and refund policy.",
   openGraph: {
-    title: "How to Pay - AI4Car",
-    description: "Complete guide to payment process, subscription plans (Free, Pro $15/mo, Premium $25/mo), and refund conditions for AI4Car.",
+    title: "How to Pay - LinguaHub",
+    description: "Complete guide to payment process, subscription plans (Free, Pro $15/mo, Premium $25/mo), and refund conditions for LinguaHub.",
   },
 };
 
@@ -81,7 +81,7 @@ export default function HowToPayPage() {
               <div>
                 <h4 className="font-medium text-foreground mb-1">Account Required</h4>
                 <p className="text-sm text-muted-foreground">
-                  To make a payment and subscribe to a plan, you must be logged into your AI4Car account. If you don&apos;t have an account yet, you can register on the{" "}
+                  To make a payment and subscribe to a plan, you must be logged into your LinguaHub account. If you don&apos;t have an account yet, you can register on the{" "}
                   <Link href="/register" className="text-primary hover:underline">registration page</Link>.
                 </p>
               </div>
@@ -278,7 +278,7 @@ export default function HowToPayPage() {
                   To request a refund, please contact our support team through the{" "}
                   <Link href="/contact" className="text-primary hover:underline">Contact page</Link>{" "}
                   or send an email to{" "}
-                  <a href="mailto:support@ai4car.com" className="text-primary hover:underline">support@ai4car.com</a>.
+                  <a href="mailto:support@linguahub.app" className="text-primary hover:underline">support@linguahub.app</a>.
                   Include your account email and order details in your request.
                 </p>
               </div>

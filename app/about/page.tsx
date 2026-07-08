@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cpu, Users, Shield, Zap, Globe, Heart } from "lucide-react";
+import { Languages, Users, Video, MessageCircle, Globe, Heart } from "lucide-react";
 
 export const metadata: Metadata = {
   alternates: {
@@ -7,37 +7,37 @@ export const metadata: Metadata = {
   },
   title: "About Us",
   description:
-    "Learn about AI4Car - a team of automotive enthusiasts and AI specialists dedicated to revolutionizing vehicle diagnostics with smart OBD2 technology.",
+    "Learn about LinguaHub - an online language school with native teachers and live lessons, on a mission to help everyone speak a new language with confidence.",
   openGraph: {
-    title: "About AI4Car",
-    description: "Learn about our mission to make vehicle diagnostics smarter and more accessible for everyone.",
+    title: "About LinguaHub",
+    description: "Learn about our mission to make language learning simple, social, and accessible for everyone.",
   },
 };
 
 const teamValues = [
   {
-    icon: Zap,
-    title: "Innovation",
+    icon: MessageCircle,
+    title: "Conversation First",
     description:
-      "We leverage cutting-edge AI technology to make vehicle diagnostics accessible to everyone.",
-  },
-  {
-    icon: Shield,
-    title: "Reliability",
-    description:
-      "Our solutions are built with precision and accuracy, ensuring you can trust every diagnosis.",
-  },
-  {
-    icon: Users,
-    title: "User-Centric",
-    description:
-      "We design our products with the end user in mind, making complex diagnostics simple.",
+      "We believe you learn a language by speaking it. Every lesson gets you talking from day one.",
   },
   {
     icon: Globe,
-    title: "Accessibility",
+    title: "Native Teachers",
     description:
-      "We believe everyone should have access to professional-grade car diagnostics tools.",
+      "Our teachers are experienced native speakers who make a new language feel natural and fun.",
+  },
+  {
+    icon: Users,
+    title: "Small Groups",
+    description:
+      "Classes stay small so every student gets real speaking time and personal attention.",
+  },
+  {
+    icon: Video,
+    title: "Learn Anywhere",
+    description:
+      "Join live online lessons from any device, wherever you are in the world.",
   },
 ];
 
@@ -49,15 +49,16 @@ export default function AboutPage() {
         <div className="text-center mb-12">
           <div className="flex justify-center mb-6">
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-              <Cpu className="h-8 w-8" />
+              <Languages className="h-8 w-8" />
             </div>
           </div>
           <h1 className="text-3xl font-bold text-foreground mb-4 sm:text-4xl">
-            About AI4Car
+            About LinguaHub
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We are a team of automotive enthusiasts and AI specialists dedicated
-            to revolutionizing how people diagnose and understand their vehicles.
+            We are an online language school built by teachers and language
+            lovers who believe everyone can learn to speak a new language with
+            the right guidance and plenty of real practice.
           </p>
         </div>
 
@@ -67,16 +68,16 @@ export default function AboutPage() {
             Our Mission
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            At AI4Car, our mission is to democratize vehicle diagnostics. We
-            believe that every car owner should have access to professional-grade
-            diagnostic tools without the need for expensive equipment or
-            specialized knowledge.
+            At LinguaHub, our mission is to make language learning simple,
+            social, and accessible. We believe that anyone can become a
+            confident speaker without expensive courses or years of grammar
+            drills.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            By combining OBD2 technology with advanced artificial intelligence,
-            we transform complex error codes into clear, actionable insights that
-            anyone can understand. Our goal is to empower car owners to make
-            informed decisions about their vehicle maintenance and repairs.
+            By combining live online lessons with friendly native teachers and a
+            conversation-first approach, we help students in English, French,
+            Spanish, and German start speaking from their very first class and
+            keep improving week after week.
           </p>
         </div>
 
@@ -108,19 +109,18 @@ export default function AboutPage() {
         {/* Team Section */}
         <div className="bg-card border border-border rounded-2xl p-8 shadow-lg mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">
-            Our Team
+            Our Teachers
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            AI4Car was founded by a diverse team of software engineers, AI
-            researchers, and automotive experts who share a common passion for
-            making technology more accessible.
+            LinguaHub was founded by a diverse group of language teachers and
+            education specialists who share a passion for helping people connect
+            through language.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            Our team combines decades of experience in automotive diagnostics,
-            machine learning, and mobile application development. We work
-            tirelessly to improve our algorithms and expand our database of
-            diagnostic codes to provide you with the most accurate and helpful
-            information possible.
+            Our teachers are native speakers with years of classroom and online
+            teaching experience. They know how to keep lessons engaging, correct
+            you kindly, and build the confidence you need to use your new
+            language in the real world.
           </p>
         </div>
 
@@ -133,8 +133,8 @@ export default function AboutPage() {
             Join Our Community
           </h2>
           <p className="text-muted-foreground">
-            Thank you for choosing AI4Car. Together, we are making vehicle
-            diagnostics smarter and more accessible for everyone.
+            Thank you for choosing LinguaHub. Together, we are making language
+            learning simple, social, and accessible for everyone.
           </p>
         </div>
       </div>

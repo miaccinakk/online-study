@@ -140,7 +140,7 @@ export default function RegisterPage() {
             Create Account
           </h1>
           <p className="text-muted-foreground">
-            Join AI4Car and start diagnosing your vehicle
+            Join LinguaHub and start learning a new language
           </p>
         </div>
 

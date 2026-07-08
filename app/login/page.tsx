@@ -68,7 +68,7 @@ export default function LoginPage() {
             Welcome Back
           </h1>
           <p className="text-muted-foreground">
-            Sign in to your AI4Car account
+            Sign in to your LinguaHub account
           </p>
         </div>
 
@@ -174,7 +174,7 @@ export default function LoginPage() {
             </div>
             <div className="relative flex justify-center text-sm">
               <span className="bg-card px-4 text-muted-foreground">
-                New to AI4Car?
+                New to LinguaHub?
               </span>
             </div>
           </div>

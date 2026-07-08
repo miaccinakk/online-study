@@ -4,7 +4,7 @@ import { GuestGuard } from "@/components/guest-guard";
 export const metadata: Metadata = {
   title: "Reset Password",
   description:
-    "Set a new password for your AI4Car account.",
+    "Set a new password for your LinguaHub account.",
   robots: {
     index: false,
     follow: false,
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Reset Password - AI4Car",
-    description: "Create a new password for your AI4Car account.",
+    title: "Reset Password - LinguaHub",
+    description: "Create a new password for your LinguaHub account.",
   },
 };
 
