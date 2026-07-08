@@ -249,7 +249,7 @@ export function Footer({ hideCTA = false }: FooterProps) {
             {/* Subtle separator */}
             <div className="mb-8 h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
             <p className="text-center text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} AI4Car. All rights reserved.
+              &copy; {new Date().getFullYear()} LinguaHub. All rights reserved.
             </p>
           </div>
         </div>

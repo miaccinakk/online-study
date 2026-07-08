@@ -21,33 +21,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ai4car.app"),
+  metadataBase: new URL("https://linguahub.app"),
   alternates: {
     canonical: "/",
   },
   title: {
-    default: "AI4Car - OBD2 Scanner App for Android & iPhone | Car Diagnostic App",
-    template: "%s | AI4Car",
+    default: "LinguaHub - Online Language School | Learn English, French, Spanish & German",
+    template: "%s | LinguaHub",
   },
   description:
-    "The best OBD2 scanner app for Android and iPhone. Scan car errors, read fault codes, and get AI-powered vehicle diagnostics via Bluetooth or Wi-Fi. Download free.",
+    "Learn a new language online with live lessons and native teachers. Courses in English, French, Spanish, and German for every level. Start free today.",
   keywords: [
-    "obd2 scanner app",
-    "car diagnostic app",
-    "obd2 scanner for android",
-    "obd2 scanner for iphone",
-    "scan car errors",
-    "check engine scanner app",
-    "car fault code reader",
-    "obd2 bluetooth scanner app",
-    "vehicle diagnostics app",
-    "obd2 app download",
-    "car error code scanner",
-    "AI car diagnostics",
+    "online language school",
+    "learn english online",
+    "learn french online",
+    "learn spanish online",
+    "learn german online",
+    "language courses",
+    "live language lessons",
+    "native teachers",
+    "online language classes",
+    "language learning",
   ],
-  authors: [{ name: "AI4Car Team" }],
-  creator: "AI4Car",
-  publisher: "AI4Car",
+  authors: [{ name: "LinguaHub Team" }],
+  creator: "LinguaHub",
+  publisher: "LinguaHub",
   robots: {
     index: true,
     follow: true,
@@ -64,25 +62,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ai4car.app",
-    siteName: "AI4Car",
-    title: "AI4Car - Best OBD2 Scanner App for Android & iPhone",
+    url: "https://linguahub.app",
+    siteName: "LinguaHub",
+    title: "LinguaHub - Online Language School",
     description:
-      "The #1 OBD2 scanner app for Android and iPhone. Scan car errors, read fault codes, and get AI-powered vehicle diagnostics. Download free today.",
+      "Learn a new language online with live lessons and native teachers. Courses in English, French, Spanish, and German. Start free today.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "AI4Car - Smart OBD2 Diagnostics",
+        alt: "LinguaHub - Online Language School",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI4Car - Best OBD2 Scanner App for Android & iPhone",
+    title: "LinguaHub - Online Language School",
     description:
-      "The #1 OBD2 scanner app. Scan car errors, read fault codes, and get AI-powered diagnostics on your smartphone. Download free.",
+      "Learn a new language online with live lessons and native teachers. Courses in English, French, Spanish, and German. Start free today.",
     images: ["/og-image.jpg"],
   },
 };
@@ -100,84 +98,67 @@ export default function RootLayout({
 }>) {
   const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "AI4Car",
-    url: "https://ai4car.app",
-    logo: "https://ai4car.app/logo.svg",
-    description: "AI-powered OBD2 scanner app for Android and iPhone. Scan car errors, read fault codes, and get smart vehicle diagnostics.",
+    "@type": "EducationalOrganization",
+    name: "LinguaHub",
+    url: "https://linguahub.app",
+    logo: "https://linguahub.app/logo.svg",
+    description: "Online language school offering live lessons with native teachers in English, French, Spanish, and German.",
     foundingDate: "2024",
-    sameAs: [
-      "https://play.google.com/store/apps/details?id=com.ai4car.app",
-      "https://apps.apple.com/app/ai4car"
-    ],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
-      url: "https://ai4car.app/contact"
+      url: "https://linguahub.app/contact"
     }
   };
 
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "AI4Car",
-    url: "https://ai4car.app",
-    description: "The best OBD2 scanner app for Android and iPhone with AI-powered diagnostics.",
+    name: "LinguaHub",
+    url: "https://linguahub.app",
+    description: "Online language school with live lessons and native teachers.",
     publisher: {
       "@type": "Organization",
-      name: "AI4Car"
+      name: "LinguaHub"
     },
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://ai4car.app/problems/search?q={search_term_string}",
+      target: "https://linguahub.app/courses/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };
 
-  const softwareAppSchema = {
+  const courseListSchema = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "AI4Car - OBD2 Scanner",
-    operatingSystem: "Android, iOS",
-    applicationCategory: "UtilitiesApplication",
-    description: "AI-powered OBD2 scanner app. Scan car errors, read fault codes, check engine light diagnostics via Bluetooth or Wi-Fi.",
-    offers: [
+    "@type": "ItemList",
+    name: "LinguaHub Language Courses",
+    description: "Live online language courses in English, French, Spanish, and German for all levels.",
+    itemListElement: [
       {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-        name: "Free Plan",
-        description: "Basic error scanning, 3 full scans per month, 4 Live Data PIDs"
+        "@type": "Course",
+        name: "English Course",
+        description: "Learn English online with native teachers, from beginner to advanced.",
+        provider: { "@type": "Organization", name: "LinguaHub", url: "https://linguahub.app" }
       },
       {
-        "@type": "Offer",
-        price: "15",
-        priceCurrency: "USD",
-        name: "Pro Plan",
-        description: "Unlimited scans, 20 Live Data PIDs, 1M AI tokens, 3 vehicles"
+        "@type": "Course",
+        name: "French Course",
+        description: "Learn French online with live lessons and small groups.",
+        provider: { "@type": "Organization", name: "LinguaHub", url: "https://linguahub.app" }
       },
       {
-        "@type": "Offer",
-        price: "25",
-        priceCurrency: "USD",
-        name: "Premium Plan",
-        description: "Unlimited Live Data PIDs, 5M AI tokens, 5 vehicles"
+        "@type": "Course",
+        name: "Spanish Course",
+        description: "Learn Spanish online with conversation-focused lessons.",
+        provider: { "@type": "Organization", name: "LinguaHub", url: "https://linguahub.app" }
+      },
+      {
+        "@type": "Course",
+        name: "German Course",
+        description: "Learn German online with experienced native teachers.",
+        provider: { "@type": "Organization", name: "LinguaHub", url: "https://linguahub.app" }
       }
-    ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1250",
-      bestRating: "5",
-      worstRating: "1"
-    },
-    downloadUrl: "https://ai4car.app/downloads",
-    screenshot: "https://ai4car.app/og-image.jpg",
-    softwareVersion: "1.0",
-    author: {
-      "@type": "Organization",
-      name: "AI4Car"
-    }
+    ]
   };
 
   return (
