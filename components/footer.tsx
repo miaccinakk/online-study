@@ -5,28 +5,32 @@ import { usePathname } from "next/navigation";
 import { Languages, Mail, MessageCircle, Video, Award, Mic, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth-context";
+import { useI18n, type TranslationKey } from "@/lib/i18n";
 
-const footerLinksBase = {
+const footerLinksBase: Record<
+  "product" | "companyGuest" | "companyAuth" | "legal",
+  { href: string; label: TranslationKey }[]
+> = {
   product: [
-    { href: "/courses", label: "Courses" },
-    { href: "/pricing", label: "Pricing" },
-    { href: "/register", label: "Get Started" },
-    { href: "/about", label: "About Us" },
+    { href: "/courses", label: "footer.link.courses" },
+    { href: "/pricing", label: "footer.link.pricing" },
+    { href: "/register", label: "footer.link.getStarted" },
+    { href: "/about", label: "footer.link.aboutUs" },
   ],
   companyGuest: [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: "footer.link.home" },
+    { href: "/about", label: "footer.link.about" },
+    { href: "/contact", label: "footer.link.contact" },
   ],
   companyAuth: [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/dashboard/support", label: "Support" },
+    { href: "/", label: "footer.link.home" },
+    { href: "/about", label: "footer.link.about" },
+    { href: "/dashboard/support", label: "footer.link.support" },
   ],
   legal: [
-    { href: "/privacy", label: "Privacy Policy" },
-    { href: "/terms", label: "Terms of Service" },
-    { href: "/sitemap-page", label: "Site Map" },
+    { href: "/privacy", label: "footer.link.privacy" },
+    { href: "/terms", label: "footer.link.terms" },
+    { href: "/sitemap-page", label: "footer.link.sitemap" },
   ],
 };
 
@@ -37,6 +41,7 @@ interface FooterProps {
 export function Footer({ hideCTA = false }: FooterProps) {
   const pathname = usePathname();
   const { isAuthenticated } = useAuth();
+  const { t } = useI18n();
 
   // Hide CTA section on dashboard pages
   const isDashboard = pathname?.startsWith("/dashboard");
@@ -62,20 +67,19 @@ export function Footer({ hideCTA = false }: FooterProps) {
               {/* Left side - Text and CTA */}
               <div className="text-left">
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                  <span className="text-foreground">Ready to </span>
-                  <span className="gradient-text">Start</span>
+                  <span className="text-foreground">{t("footer.ctaTitleA")}</span>
+                  <span className="gradient-text">{t("footer.ctaTitleB")}</span>
                   <br />
-                  <span className="text-foreground">Learning a Language?</span>
+                  <span className="text-foreground">{t("footer.ctaTitleC")}</span>
                 </h2>
                 <p className="mt-6 max-w-md text-lg text-muted-foreground">
-                  Join thousands of students already learning with LinguaHub.
-                  Your first lessons are free.
+                  {t("footer.ctaSubtitle")}
                 </p>
                 <div className="mt-8">
                   <Button asChild size="lg" variant="glow">
                     <Link href="/register" className="flex items-center gap-2">
                       <Languages className="h-5 w-5" />
-                      Get Started Free
+                      {t("footer.getStartedFree")}
                     </Link>
                   </Button>
                 </div>
@@ -214,7 +218,7 @@ export function Footer({ hideCTA = false }: FooterProps) {
                 </span>
               </Link>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                Online language school with live lessons and expert teachers.
+                {t("footer.tagline")}
               </p>
               <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary" />
@@ -229,7 +233,7 @@ export function Footer({ hideCTA = false }: FooterProps) {
 
             {/* Product */}
             <div>
-              <h3 className="text-sm font-semibold text-foreground">Product</h3>
+              <h3 className="text-sm font-semibold text-foreground">{t("footer.product")}</h3>
               <ul className="mt-4 space-y-3">
                 {footerLinksBase.product.map((link) => (
                   <li key={link.href}>
@@ -237,7 +241,7 @@ export function Footer({ hideCTA = false }: FooterProps) {
                       href={link.href}
                       className="text-sm text-muted-foreground transition-colors hover:text-primary"
                     >
-                      {link.label}
+                      {t(link.label)}
                     </Link>
                   </li>
                 ))}
@@ -246,7 +250,7 @@ export function Footer({ hideCTA = false }: FooterProps) {
 
             {/* Company */}
             <div>
-              <h3 className="text-sm font-semibold text-foreground">Company</h3>
+              <h3 className="text-sm font-semibold text-foreground">{t("footer.company")}</h3>
               <ul className="mt-4 space-y-3">
                 {companyLinks.map((link) => (
                   <li key={link.href}>
@@ -254,7 +258,7 @@ export function Footer({ hideCTA = false }: FooterProps) {
                       href={link.href}
                       className="text-sm text-muted-foreground transition-colors hover:text-primary"
                     >
-                      {link.label}
+                      {t(link.label)}
                     </Link>
                   </li>
                 ))}
@@ -263,7 +267,7 @@ export function Footer({ hideCTA = false }: FooterProps) {
 
             {/* Legal */}
             <div>
-              <h3 className="text-sm font-semibold text-foreground">Legal</h3>
+              <h3 className="text-sm font-semibold text-foreground">{t("footer.legal")}</h3>
               <ul className="mt-4 space-y-3">
                 {footerLinksBase.legal.map((link) => (
                   <li key={link.href}>
@@ -271,7 +275,7 @@ export function Footer({ hideCTA = false }: FooterProps) {
                       href={link.href}
                       className="text-sm text-muted-foreground transition-colors hover:text-primary"
                     >
-                      {link.label}
+                      {t(link.label)}
                     </Link>
                   </li>
                 ))}
@@ -283,7 +287,7 @@ export function Footer({ hideCTA = false }: FooterProps) {
             {/* Subtle separator */}
             <div className="mb-8 h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
             <p className="text-center text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} LinguaHub. All rights reserved.
+              &copy; {new Date().getFullYear()} LinguaHub. {t("footer.rights")}
             </p>
           </div>
         </div>

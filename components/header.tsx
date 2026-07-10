@@ -6,16 +6,19 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X, User, LogOut, Settings, ChevronDown, CreditCard, MessageCircle, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth-context";
+import { useI18n, type TranslationKey } from "@/lib/i18n";
+import { LanguageSwitcher } from "@/components/language-switcher";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/courses", label: "Courses" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/about", label: "About" },
+const navLinks: { href: string; label: TranslationKey }[] = [
+  { href: "/", label: "nav.home" },
+  { href: "/courses", label: "nav.courses" },
+  { href: "/pricing", label: "nav.pricing" },
+  { href: "/about", label: "nav.about" },
 ];
 
 export function Header() {
   const { user, isAuthenticated, isLoading, logout } = useAuth();
+  const { t } = useI18n();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -100,13 +103,14 @@ export function Header() {
                   : "text-white/90 hover:bg-white/15 hover:text-white"
               }`}
             >
-              {link.label}
+              {t(link.label)}
             </Link>
           ))}
         </nav>
 
         {/* Desktop Auth/CTA */}
         <div className="hidden md:flex items-center gap-3">
+          <LanguageSwitcher scrolled={scrolled} />
           {isLoading ? (
             <div className="h-10 w-24 bg-muted animate-pulse rounded-lg" />
           ) : isAuthenticated && user ? (
@@ -157,7 +161,7 @@ export function Header() {
                     className="flex items-center gap-3 px-4 py-2.5 text-sm text-foreground hover:bg-muted/80 transition-colors"
                   >
                     <Settings className="h-4 w-4 text-muted-foreground" />
-                    Dashboard
+                    {t("nav.dashboard")}
                   </Link>
                   <Link
                     href="/dashboard/subscription"
@@ -165,7 +169,7 @@ export function Header() {
                     className="flex items-center gap-3 px-4 py-2.5 text-sm text-foreground hover:bg-muted/80 transition-colors"
                   >
                     <CreditCard className="h-4 w-4 text-muted-foreground" />
-                    Subscription
+                    {t("nav.subscription")}
                   </Link>
                   <Link
                     href="/dashboard/support"
@@ -173,7 +177,7 @@ export function Header() {
                     className="flex items-center gap-3 px-4 py-2.5 text-sm text-foreground hover:bg-muted/80 transition-colors"
                   >
                     <MessageCircle className="h-4 w-4 text-muted-foreground" />
-                    Support
+                    {t("nav.support")}
                   </Link>
                   <div className="border-t border-border mt-1 pt-1">
                     <button
@@ -181,7 +185,7 @@ export function Header() {
                       className="flex items-center gap-3 px-4 py-2.5 text-sm text-destructive hover:bg-destructive/10 transition-colors w-full text-left"
                     >
                       <LogOut className="h-4 w-4" />
-                      Sign Out
+                      {t("nav.signOut")}
                     </button>
                   </div>
                 </div>
@@ -194,10 +198,10 @@ export function Header() {
                 variant="ghost"
                 className={scrolled ? "" : "text-white hover:bg-white/15 hover:text-white"}
               >
-                <Link href="/login">Sign In</Link>
+                <Link href="/login">{t("nav.signIn")}</Link>
               </Button>
               <Button asChild variant="glow">
-                <Link href="/register">Get Started</Link>
+                <Link href="/register">{t("nav.getStarted")}</Link>
               </Button>
             </>
           )}
@@ -233,9 +237,13 @@ export function Header() {
                 className="block rounded-lg px-4 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-muted/80 hover:text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {link.label}
+                {t(link.label)}
               </Link>
             ))}
+
+            <div className="px-1 py-2">
+              <LanguageSwitcher />
+            </div>
 
             <div className="pt-3 border-t border-border/30 mt-3">
               {isLoading ? (
@@ -271,7 +279,7 @@ export function Header() {
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <Settings className="h-5 w-5 text-muted-foreground" />
-                    Dashboard
+                    {t("nav.dashboard")}
                   </Link>
 
                   <Link
@@ -280,7 +288,7 @@ export function Header() {
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <CreditCard className="h-5 w-5 text-muted-foreground" />
-                    Subscription
+                    {t("nav.subscription")}
                   </Link>
 
                   <Link
@@ -289,7 +297,7 @@ export function Header() {
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <MessageCircle className="h-5 w-5 text-muted-foreground" />
-                    Support
+                    {t("nav.support")}
                   </Link>
 
                   <button
@@ -297,7 +305,7 @@ export function Header() {
                     className="flex items-center gap-3 px-4 py-3 text-base font-medium text-destructive hover:bg-destructive/10 rounded-lg transition-colors w-full text-left"
                   >
                     <LogOut className="h-5 w-5" />
-                    Sign Out
+                    {t("nav.signOut")}
                   </button>
                 </div>
               ) : (
@@ -307,7 +315,7 @@ export function Header() {
                       href="/login"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Sign In
+                      {t("nav.signIn")}
                     </Link>
                   </Button>
                   <Button asChild variant="glow" className="w-full">
@@ -315,7 +323,7 @@ export function Header() {
                       href="/register"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Get Started
+                      {t("nav.getStarted")}
                     </Link>
                   </Button>
                 </div>
