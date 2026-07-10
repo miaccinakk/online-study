@@ -12,10 +12,11 @@ interface ScrollRailProps {
 
 // Left gutter that matches a centered max-w-6xl (72rem) container, so the rail
 // starts in line with the section heading but runs off the right edge.
-const bleedLeftPad =
-  "pl-[max(1rem,calc((100vw_-_72rem)/2_+_1rem))] sm:pl-[max(1.5rem,calc((100vw_-_72rem)/2_+_1.5rem))] lg:pl-[max(2rem,calc((100vw_-_72rem)/2_+_2rem))]";
-const bleedRightPad =
-  "pr-[max(1rem,calc((100vw_-_72rem)/2_+_1rem))] sm:pr-[max(1.5rem,calc((100vw_-_72rem)/2_+_1.5rem))] lg:pr-[max(2rem,calc((100vw_-_72rem)/2_+_2rem))]";
+// Use margin (not padding) so the scroller's initial scrollLeft stays at 0 and
+// the "scroll left" arrow only appears after the user scrolls/swipes right.
+const bleedLeftGutter =
+  "ml-[max(1rem,calc((100vw_-_72rem)/2_+_1rem))] sm:ml-[max(1.5rem,calc((100vw_-_72rem)/2_+_1.5rem))] lg:ml-[max(2rem,calc((100vw_-_72rem)/2_+_2rem))]";
+const bleedRightPad = "pr-6 sm:pr-8 lg:pr-10";
 
 export function ScrollRail({ children, ariaLabel, bleed = false }: ScrollRailProps) {
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -75,7 +76,7 @@ export function ScrollRail({ children, ariaLabel, bleed = false }: ScrollRailPro
         ref={scrollerRef}
         aria-label={ariaLabel}
         className={`flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
-          bleed ? `${bleedLeftPad} ${bleedRightPad}` : ""
+          bleed ? `${bleedLeftGutter} ${bleedRightPad}` : ""
         }`}
       >
         {children}
