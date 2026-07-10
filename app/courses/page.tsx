@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Search, ArrowRight, Sparkles, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CourseCatalog } from "@/components/course-catalog";
+import { CoursePreview } from "@/components/course-preview";
 import { courses, getFeaturedCourses } from "@/lib/courses-data";
 
 export const metadata: Metadata = {
@@ -37,10 +38,10 @@ export default function CoursesPage() {
         <div className="absolute inset-0 isometric-grid opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
 
-        <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-          <div className="grid items-end gap-8 lg:grid-cols-2 lg:gap-16">
+        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+          <div className="grid items-end gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="flex flex-col items-start text-left">
-              <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground mb-6">
+              <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground mb-8">
                 <Sparkles className="h-4 w-4 text-primary" />
                 <span>Live lessons with expert teachers</span>
               </div>
@@ -50,31 +51,36 @@ export default function CoursesPage() {
                 <span className="gradient-text">Courses</span>
               </h1>
 
-              <p className="mt-4 max-w-xl text-lg text-muted-foreground">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
                 Choose a language and start speaking from your very first lesson.
                 Every course is built around real conversation, small groups, and
                 friendly, expert teachers.
               </p>
             </div>
 
-            <div className="hidden lg:flex items-end justify-end gap-8">
-              <div className="text-right">
-                <div className="text-4xl font-bold text-primary">{totalCount}</div>
-                <div className="text-sm text-muted-foreground">Languages</div>
+            <div className="flex flex-col items-end gap-10">
+              <div className="hidden lg:flex items-end justify-end gap-8">
+                <div className="text-right">
+                  <div className="text-4xl font-bold text-primary">{totalCount}</div>
+                  <div className="text-sm text-muted-foreground">Languages</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-4xl font-bold text-primary">3</div>
+                  <div className="text-sm text-muted-foreground">Categories</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-4xl font-bold text-primary">Live</div>
+                  <div className="text-sm text-muted-foreground">Classes</div>
+                </div>
               </div>
-              <div className="text-right">
-                <div className="text-4xl font-bold text-primary">3</div>
-                <div className="text-sm text-muted-foreground">Categories</div>
-              </div>
-              <div className="text-right">
-                <div className="text-4xl font-bold text-primary">Live</div>
-                <div className="text-sm text-muted-foreground">Classes</div>
-              </div>
+
+              {/* Course preview: text + big round play button (cutout style) */}
+              <CoursePreview />
             </div>
           </div>
 
           {/* Search Bar */}
-          <div className="mt-8">
+          <div className="mt-12">
             <form action="/courses/search" method="GET" className="relative">
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
