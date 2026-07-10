@@ -6,49 +6,50 @@ const features = [
     title: "Conversation First",
     description:
       "You start speaking from your very first lesson. Our teachers focus on real conversations, not endless grammar drills, so you build confidence fast.",
-    tone: "coral",
+    tone: "orange",
   },
   {
     icon: Globe,
     title: "Native Teachers",
     description:
       "Learn from friendly, experienced native speakers who know how to make a new language feel natural, clear, and fun to practice.",
-    tone: "sky",
+    tone: "violet",
   },
   {
     icon: Users,
     title: "Small Groups",
     description:
       "Classes stay small so everyone gets plenty of speaking time and personal attention. Learn together with students at your level.",
-    tone: "mint",
+    tone: "berry",
   },
   {
     icon: Video,
     title: "Live Online Lessons",
     description:
       "Join interactive lessons from anywhere. All you need is an internet connection to learn with your teacher and classmates in real time.",
-    tone: "sky",
+    tone: "violet",
   },
   {
     icon: CalendarClock,
     title: "Flexible Schedule",
     description:
       "Pick times that fit your life and learn at your own pace. Reschedule when you need to and never miss the material.",
-    tone: "mint",
+    tone: "coral",
   },
   {
     icon: Award,
     title: "Track Your Progress",
     description:
       "Follow a clear path with progress tracking and certificates, so you always know how far you've come and what's next.",
-    tone: "coral",
+    tone: "berry",
   },
 ];
 
 const toneStyles: Record<string, string> = {
+  orange: "bg-primary/12 text-primary",
+  violet: "bg-accent/12 text-accent",
+  berry: "bg-berry/12 text-berry",
   coral: "bg-hero/12 text-hero",
-  sky: "bg-accent/12 text-accent",
-  mint: "bg-primary/12 text-primary",
 };
 
 export function Features() {

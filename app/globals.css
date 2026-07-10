@@ -21,9 +21,13 @@
   --color-secondary: oklch(0.93 0.02 60);
   --color-secondary-foreground: oklch(0.40 0.08 45);
   
-  /* Accent - deeper orange for secondary emphasis */
-  --color-accent: oklch(0.68 0.17 42);
+  /* Accent - dusty violet that harmonizes with the orange brand */
+  --color-accent: oklch(0.56 0.16 300);
   --color-accent-foreground: oklch(0.99 0 0);
+
+  /* Berry - warm rose/red accent for extra variety */
+  --color-berry: oklch(0.61 0.19 18);
+  --color-berry-foreground: oklch(0.99 0 0);
 
   /* Hero - warm orange (matches the primary brand color) */
   --color-hero: oklch(0.72 0.15 50);
@@ -65,7 +69,7 @@
   }
   
   .glow-accent {
-    box-shadow: 0 4px 20px oklch(0.68 0.17 42 / 0.25), 0 2px 8px oklch(0.68 0.17 42 / 0.15);
+    box-shadow: 0 4px 20px oklch(0.56 0.16 300 / 0.25), 0 2px 8px oklch(0.56 0.16 300 / 0.15);
   }
   
   .glow-line {
@@ -74,6 +78,14 @@
   
   .gradient-text {
     background: linear-gradient(135deg, oklch(0.64 0.18 46), oklch(0.74 0.15 62));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Orange → violet blend for occasional emphasis headings */
+  .gradient-text-violet {
+    background: linear-gradient(135deg, oklch(0.64 0.18 46), oklch(0.56 0.16 300));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

@@ -11,6 +11,40 @@ const categoryIcons: Record<CourseCategory, React.ElementType> = {
   exam: GraduationCap,
 };
 
+// Each category gets its own accent hue so the rail isn't all orange.
+const categoryColors: Record<
+  CourseCategory,
+  {
+    chip: string;
+    text: string;
+    hoverTitle: string;
+    hoverBorder: string;
+    hoverShadow: string;
+  }
+> = {
+  conversation: {
+    chip: "bg-primary/10 text-primary",
+    text: "text-primary",
+    hoverTitle: "group-hover:text-primary",
+    hoverBorder: "hover:border-primary/50",
+    hoverShadow: "hover:shadow-primary/10",
+  },
+  business: {
+    chip: "bg-accent/10 text-accent",
+    text: "text-accent",
+    hoverTitle: "group-hover:text-accent",
+    hoverBorder: "hover:border-accent/50",
+    hoverShadow: "hover:shadow-accent/10",
+  },
+  exam: {
+    chip: "bg-berry/10 text-berry",
+    text: "text-berry",
+    hoverTitle: "group-hover:text-berry",
+    hoverBorder: "hover:border-berry/50",
+    hoverShadow: "hover:shadow-berry/10",
+  },
+};
+
 export function CoursesPreview() {
   const featured = courses.slice(0, 6);
 
@@ -47,11 +81,12 @@ export function CoursesPreview() {
         <ScrollRail ariaLabel="Featured courses" bleed>
             {featured.map((course) => {
               const Icon = categoryIcons[course.category];
+              const c = categoryColors[course.category];
               return (
                 <Link
                   key={course.slug}
                   href={`/courses/${course.slug}`}
-                  className="group flex w-[300px] flex-shrink-0 snap-start flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 sm:w-[340px]"
+                  className={`group flex w-[300px] flex-shrink-0 snap-start flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg sm:w-[340px] ${c.hoverBorder} ${c.hoverShadow}`}
                 >
                 <div className="relative h-44 w-full overflow-hidden">
                   <Image
@@ -64,11 +99,11 @@ export function CoursesPreview() {
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <div className="mb-3 flex items-center gap-2">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${c.chip}`}>
                       <Icon className="h-4 w-4" />
                     </span>
                     {course.code && (
-                      <span className="font-mono text-sm font-bold text-primary">
+                      <span className={`font-mono text-sm font-bold ${c.text}`}>
                         {course.code}
                       </span>
                     )}
@@ -76,13 +111,13 @@ export function CoursesPreview() {
                       {categories[course.category].name}
                     </span>
                   </div>
-                  <h3 className="font-semibold text-foreground transition-colors group-hover:text-primary">
+                  <h3 className={`font-semibold text-foreground transition-colors ${c.hoverTitle}`}>
                     {course.title.split(":")[0]?.trim() || course.title}
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
                     {course.description}
                   </p>
-                  <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-medium text-primary">
+                  <span className={`mt-auto inline-flex items-center gap-1 pt-4 text-sm font-medium ${c.text}`}>
                     View course
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                   </span>

@@ -44,7 +44,7 @@ export function StoryCard({ story }: { story: Story }) {
             aria-label={`Play ${story.name}'s story`}
             className="absolute inset-0 flex items-center justify-center bg-foreground/10 transition-colors hover:bg-foreground/20"
           >
-            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/80 text-primary-foreground shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:scale-105 sm:h-20 sm:w-20">
+            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/85 text-accent-foreground shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:scale-105 sm:h-20 sm:w-20">
               <Play className="ml-1 h-7 w-7 fill-current sm:h-8 sm:w-8" />
             </span>
           </button>

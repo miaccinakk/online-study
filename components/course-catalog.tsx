@@ -12,6 +12,40 @@ const categoryIcons: Record<CourseCategory, React.ElementType> = {
   exam: GraduationCap,
 };
 
+// Per-category accent hues so the catalog isn't a wall of orange.
+const categoryColors: Record<
+  CourseCategory,
+  {
+    chip: string;
+    text: string;
+    hoverTitle: string;
+    hoverBorder: string;
+    hoverShadow: string;
+  }
+> = {
+  conversation: {
+    chip: "bg-primary/10 text-primary",
+    text: "text-primary",
+    hoverTitle: "group-hover:text-primary",
+    hoverBorder: "hover:border-primary/50",
+    hoverShadow: "hover:shadow-primary/10",
+  },
+  business: {
+    chip: "bg-accent/10 text-accent",
+    text: "text-accent",
+    hoverTitle: "group-hover:text-accent",
+    hoverBorder: "hover:border-accent/50",
+    hoverShadow: "hover:shadow-accent/10",
+  },
+  exam: {
+    chip: "bg-berry/10 text-berry",
+    text: "text-berry",
+    hoverTitle: "group-hover:text-berry",
+    hoverBorder: "hover:border-berry/50",
+    hoverShadow: "hover:shadow-berry/10",
+  },
+};
+
 interface CourseCatalogProps {
   courses: Course[];
 }
@@ -104,20 +138,21 @@ export function CourseCatalog({ courses }: CourseCatalogProps) {
         <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
           {filteredCourses.map((course) => {
             const Icon = categoryIcons[course.category];
+            const c = categoryColors[course.category];
             return (
               <Link
                 key={course.slug}
                 href={`/courses/${course.slug}`}
-                className="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5"
+                className={`group flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:shadow-lg ${c.hoverBorder} ${c.hoverShadow}`}
               >
                 <div className="mb-3 flex items-start gap-4">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg ${c.chip}`}>
                     <Icon className="h-5 w-5" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
                       {course.code && (
-                        <span className="font-mono text-sm font-bold text-primary">
+                        <span className={`font-mono text-sm font-bold ${c.text}`}>
                           {course.code}
                         </span>
                       )}
@@ -125,7 +160,7 @@ export function CourseCatalog({ courses }: CourseCatalogProps) {
                         {categories[course.category].name}
                       </span>
                     </div>
-                    <h3 className="mt-1 font-semibold text-foreground transition-colors group-hover:text-primary">
+                    <h3 className={`mt-1 font-semibold text-foreground transition-colors ${c.hoverTitle}`}>
                       {course.title.split(":")[0]?.trim() || course.title}
                     </h3>
                   </div>
@@ -145,7 +180,7 @@ export function CourseCatalog({ courses }: CourseCatalogProps) {
                   />
                 </div>
 
-                <span className="mt-auto inline-flex items-center gap-1 text-sm font-medium text-primary">
+                <span className={`mt-auto inline-flex items-center gap-1 text-sm font-medium ${c.text}`}>
                   View course
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </span>
