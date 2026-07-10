@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowDown, Trophy, Sparkles, GraduationCap, MessageCircle, Globe } from "lucide-react";
+import { ArrowRight, ArrowDown, Trophy, Sparkles, GraduationCap, MessageCircle } from "lucide-react";
 
 function scrollToNext() {
   const target = document.getElementById("after-hero");
@@ -66,12 +66,7 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:px-8">
         {/* Left: copy */}
         <div className="max-w-xl">
-          <span className="inline-flex items-center gap-2 rounded-full bg-hero-foreground/15 px-4 py-1.5 text-sm font-medium text-hero-foreground backdrop-blur-sm">
-            <Globe className="h-4 w-4" />
-            Live lessons with native teachers
-          </span>
-
-          <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="text-balance text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
             Learn a new language with real teachers
           </h1>
 
@@ -146,16 +141,32 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Rounded bottom transition + scroll-down button */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 rounded-t-[3rem] bg-background sm:h-20" />
-      <button
-        type="button"
-        onClick={scrollToNext}
-        aria-label="Scroll to content"
-        className="absolute bottom-3 left-1/2 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-hero text-hero-foreground shadow-lg ring-4 ring-background transition-transform hover:translate-y-0.5 sm:h-16 sm:w-16"
-      >
-        <ArrowDown className="h-6 w-6 animate-bounce" />
-      </button>
+      {/* Wave bottom transition */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0">
+        <svg
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          className="h-16 w-full sm:h-24"
+          aria-hidden="true"
+        >
+          <path
+            d="M0,52 C 360,96 500,96 720,64 C 940,32 1080,32 1440,60 L1440,120 L0,120 Z"
+            fill="var(--color-background)"
+          />
+        </svg>
+      </div>
+
+      {/* Center notch: white cutout with round scroll-down button nested inside */}
+      <div className="absolute bottom-1 left-1/2 z-10 flex h-24 w-24 -translate-x-1/2 items-center justify-center rounded-full bg-background sm:bottom-2">
+        <button
+          type="button"
+          onClick={scrollToNext}
+          aria-label="Scroll to content"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-hero text-hero-foreground shadow-lg transition-transform hover:translate-y-0.5"
+        >
+          <ArrowDown className="h-6 w-6 animate-bounce" />
+        </button>
+      </div>
     </section>
   );
 }
