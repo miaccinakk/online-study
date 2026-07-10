@@ -24,6 +24,11 @@
   /* Accent - Soft blue */
   --color-accent: oklch(0.55 0.12 240);
   --color-accent-foreground: oklch(0.99 0 0);
+
+  /* Hero - warm coral/orange (friendly, not green) */
+  --color-hero: oklch(0.72 0.15 50);
+  --color-hero-foreground: oklch(0.99 0 0);
+  --color-hero-ring: oklch(0.78 0.13 52);
   
   --color-destructive: oklch(0.55 0.18 25);
   --color-destructive-foreground: oklch(1 0 0);
