@@ -15,7 +15,7 @@ export function CoursesPreview() {
   const featured = courses.slice(0, 6);
 
   return (
-    <section className="relative py-20 sm:py-28">
+    <section className="relative overflow-hidden py-20 sm:py-28">
       {/* Seamless background continuation - no hard edges */}
       <div className="absolute inset-0 isometric-grid opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background/70" />
@@ -40,10 +40,11 @@ export function CoursesPreview() {
             </Link>
           </Button>
         </div>
+      </div>
 
-        {/* Horizontal scroll rail */}
-        <div className="mt-12">
-          <ScrollRail ariaLabel="Featured courses">
+      {/* Full-bleed horizontal scroll rail */}
+      <div className="relative mt-12">
+        <ScrollRail ariaLabel="Featured courses" bleed>
             {featured.map((course) => {
               const Icon = categoryIcons[course.category];
               return (
@@ -90,7 +91,6 @@ export function CoursesPreview() {
               );
             })}
           </ScrollRail>
-        </div>
       </div>
 
       {/* Mobile CTA */}
