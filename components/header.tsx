@@ -27,9 +27,11 @@ export function Header() {
   // "scrolled" style so the logo and nav stay legible.
   const isHome = pathname === "/";
   const scrolled = !isHome || hasScrolled;
+  // The bottom border + shadow should only appear once the user actually
+  // scrolls, on every page — including the non-home pages that are solid by default.
+  const showDivider = hasScrolled;
 
   useEffect(() => {
-    if (!isHome) return;
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 10);
     };
@@ -37,7 +39,7 @@ export function Header() {
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHome]);
+  }, []);
 
   // Close user menu when clicking outside
   useEffect(() => {
@@ -63,10 +65,8 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "border-b border-border/50 bg-background/90 shadow-sm backdrop-blur-xl"
-          : "bg-transparent"
-      }`}
+        scrolled ? "bg-background/90 backdrop-blur-xl" : "bg-transparent"
+      } ${showDivider ? "border-b border-border/50 shadow-sm" : "border-b border-transparent"}`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 group">
