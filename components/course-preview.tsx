@@ -52,17 +52,17 @@ export function CoursePreview({ video }: { video?: string }) {
         aria-label={t("coursePreview.play")}
       >
         <span className="leading-tight">
-          <span className="block text-sm font-medium text-primary-foreground/80 drop-shadow">
+          <span className="block text-sm font-medium  ">
             {t("coursePreview.hint")}
           </span>
-          <span className="block text-lg font-semibold text-primary-foreground drop-shadow">
+          <span className="block text-lg font-semibold  ">
             {t("coursePreview.watch")}
           </span>
         </span>
 
         {/* Cutout notch — background-colored ring makes the button look carved
             out of the hero, matching the homepage scroll-down button. */}
-        <span className="flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-background shadow-xl">
+        <span className="flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full">
           <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition-transform duration-300 group-hover:scale-105">
             <span className="absolute inset-0 rounded-full bg-primary/40 transition-transform duration-1000 group-hover:animate-ping" />
             <Play className="relative ml-1 h-7 w-7 fill-current" />
