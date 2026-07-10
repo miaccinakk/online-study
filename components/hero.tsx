@@ -2,142 +2,85 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Users, Globe, Video, ChevronRight } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 
-const languages = [
-  { code: "EN", name: "English" },
-  { code: "FR", name: "French" },
-  { code: "ES", name: "Spanish" },
-  { code: "DE", name: "German" },
-];
+function scrollToNext() {
+  const target = document.getElementById("after-hero");
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth" });
+  } else {
+    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+  }
+}
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] overflow-hidden bg-background -mt-16 pt-16">
-      {/* Grid background - extends under header */}
-      <div className="absolute inset-0 isometric-grid opacity-50" />
+    <section className="relative -mt-16 overflow-hidden bg-primary pb-24 pt-28 text-primary-foreground sm:pb-28 sm:pt-32">
+      {/* Soft decorative accents */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_-10%,oklch(1_0_0_/_0.12),transparent)]" />
+      <div className="pointer-events-none absolute -left-10 top-1/3 h-40 w-40 rounded-full bg-primary-foreground/10 blur-2xl" />
 
-      {/* Soft gradient overlay - starts below header area */}
-      <div className="absolute inset-0 top-20 bg-gradient-to-b from-transparent via-background/30 to-background/80" />
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        {/* Centered heading */}
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            Learn a new language with real teachers
+          </h1>
+          <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-primary-foreground/85">
+            Live, conversation-first lessons that get you speaking from day one.
+          </p>
 
-      {/* Soft radial accents */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,oklch(0.55_0.14_165_/_0.06),transparent)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_80%_80%,oklch(0.55_0.12_240_/_0.04),transparent)]" />
+          <div className="mt-9 flex justify-center">
+            <Button asChild size="lg" variant="secondary" className="shadow-lg">
+              <Link href="/register" className="flex items-center gap-2">
+                Get Started Free
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </div>
 
-      {/* Decorative horizontal lines */}
-      <div className="absolute left-0 right-0 top-1/3 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
-      <div className="absolute left-0 right-0 top-2/3 h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
-
-      <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
-        <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
-          {/* Left content */}
-          <div className="flex flex-col items-start text-left">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
-              <Sparkles className="h-4 w-4 text-primary" />
-              <span>Online Language School</span>
-            </div>
-
-            {/* Heading */}
-            <h1 className="mt-8 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              <span className="text-foreground">Learn a New</span>
-              <br />
-              <span className="gradient-text">Language Online</span>
-              <br />
-              <span className="text-foreground">with Real Teachers</span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-              Join live, conversation-first lessons and start speaking from day one.
-              English, French, Spanish, and German taught by friendly native teachers,
-              wherever you are.
-            </p>
-
-            {/* Quick benefits list */}
-            <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <Video className="h-4 w-4 text-primary" />
-                <span>Live lessons</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Users className="h-4 w-4 text-primary" />
-                <span>Small groups</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Globe className="h-4 w-4 text-primary" />
-                <span>Native teachers</span>
-              </li>
-            </ul>
-
-            {/* CTA Buttons */}
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Button asChild size="lg" variant="glow">
-                <Link href="/register" className="flex items-center gap-2">
-                  Get Started Free
-                  <ArrowRight className="h-5 w-5" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline-glow-accent" size="lg">
-                <Link href="/courses">Browse Courses</Link>
-              </Button>
-            </div>
-
-            {/* Quick links to individual courses */}
-            <div className="mt-8 flex flex-col gap-2">
-              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                Explore courses
-              </span>
-              <div className="flex flex-wrap gap-2">
-                {languages.map((lang) => (
-                  <Link
-                    key={lang.code}
-                    href={`/courses/${lang.name.toLowerCase()}-course`}
-                    className="inline-flex items-center gap-1 rounded-full border border-border/50 bg-card/60 px-4 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
-                  >
-                    {lang.name}
-                    <ChevronRight className="h-3.5 w-3.5" />
-                  </Link>
-                ))}
-              </div>
+        {/* Photo + info cards */}
+        <div className="mt-14 grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          {/* Photo */}
+          <div className="relative flex justify-center lg:justify-start">
+            <div className="relative flex aspect-square w-full max-w-md items-end justify-center overflow-hidden rounded-full bg-primary-foreground/10">
+              <img
+                src="/images/hero-student.png"
+                alt="Smiling LinguaHub student"
+                className="h-[92%] w-auto object-contain object-bottom"
+              />
             </div>
           </div>
 
-          {/* Right - Language cards visualization - hidden on mobile */}
-          <div className="relative hidden items-center justify-center lg:flex">
-            <div className="relative w-full max-w-md">
-              <div className="grid grid-cols-2 gap-4">
-                {languages.map((lang, index) => (
-                  <div
-                    key={lang.code}
-                    className={`rounded-2xl border border-border/50 bg-card/80 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 ${
-                      index % 2 === 1 ? "mt-8" : ""
-                    }`}
-                  >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                      <span className="font-mono text-lg font-bold text-primary">
-                        {lang.code}
-                      </span>
-                    </div>
-                    <h3 className="mt-4 font-semibold text-foreground">
-                      {lang.name}
-                    </h3>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      Live courses
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Floating badge */}
-              <div className="absolute -right-4 top-1/2 -translate-y-1/2 rounded-xl border border-primary/15 bg-card/90 px-4 py-3 shadow-lg backdrop-blur-sm">
-                <div className="text-xs text-muted-foreground">Students</div>
-                <div className="text-lg font-bold text-primary">10,000+</div>
-              </div>
+          {/* Info cards */}
+          <div className="flex flex-col gap-5">
+            <div className="rounded-3xl bg-accent p-6 text-accent-foreground shadow-lg sm:p-8">
+              <p className="text-base leading-relaxed sm:text-lg">
+                Small live groups with friendly native teachers, so you actually
+                practice speaking every single lesson.
+              </p>
+            </div>
+            <div className="rounded-3xl bg-primary-foreground p-6 text-foreground shadow-lg sm:p-8">
+              <p className="text-base leading-relaxed sm:text-lg">
+                English, French, Spanish and German. Flexible schedules, real
+                progress, from any device, wherever you are.
+              </p>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Rounded bottom transition + scroll-down button */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 rounded-t-[3rem] bg-background sm:h-20" />
+      <button
+        type="button"
+        onClick={scrollToNext}
+        aria-label="Scroll to content"
+        className="absolute bottom-3 left-1/2 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg ring-4 ring-background transition-transform hover:translate-y-0.5 sm:h-16 sm:w-16"
+      >
+        <ArrowDown className="h-6 w-6 animate-bounce" />
+      </button>
     </section>
   );
 }

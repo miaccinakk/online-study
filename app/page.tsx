@@ -33,6 +33,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <div id="after-hero" />
       <Features />
       <StudentStories />
       <HowItWorks />
