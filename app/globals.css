@@ -4,28 +4,28 @@
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 
-  /* Light milky/cream theme with soft blue and green accents */
+  /* Light milky/cream theme with a warm orange brand accent */
   --color-background: oklch(0.97 0.005 80);
   --color-foreground: oklch(0.20 0.02 260);
   --color-muted: oklch(0.94 0.008 80);
   --color-muted-foreground: oklch(0.45 0.02 260);
   --color-border: oklch(0.88 0.01 260);
   --color-input: oklch(0.95 0.005 80);
-  --color-ring: oklch(0.55 0.15 160);
+  --color-ring: oklch(0.70 0.15 48);
 
-  /* Primary - Soft teal/green */
-  --color-primary: oklch(0.55 0.14 165);
+  /* Primary - warm orange (brand color) */
+  --color-primary: oklch(0.64 0.18 46);
   --color-primary-foreground: oklch(0.99 0 0);
   
-  /* Secondary - Soft blue */
-  --color-secondary: oklch(0.92 0.01 240);
-  --color-secondary-foreground: oklch(0.35 0.08 240);
+  /* Secondary - soft warm neutral */
+  --color-secondary: oklch(0.93 0.02 60);
+  --color-secondary-foreground: oklch(0.40 0.08 45);
   
-  /* Accent - Soft blue */
-  --color-accent: oklch(0.55 0.12 240);
+  /* Accent - deeper orange for secondary emphasis */
+  --color-accent: oklch(0.68 0.17 42);
   --color-accent-foreground: oklch(0.99 0 0);
 
-  /* Hero - warm coral/orange (friendly, not green) */
+  /* Hero - warm orange (matches the primary brand color) */
   --color-hero: oklch(0.72 0.15 50);
   --color-hero-foreground: oklch(0.99 0 0);
   --color-hero-ring: oklch(0.78 0.13 52);
@@ -61,11 +61,11 @@
 /* Glow effects for light theme */
 @layer utilities {
   .glow-primary {
-    box-shadow: 0 4px 20px oklch(0.55 0.14 165 / 0.25), 0 2px 8px oklch(0.55 0.14 165 / 0.15);
+    box-shadow: 0 4px 20px oklch(0.64 0.18 46 / 0.25), 0 2px 8px oklch(0.64 0.18 46 / 0.15);
   }
   
   .glow-accent {
-    box-shadow: 0 4px 20px oklch(0.55 0.12 240 / 0.25), 0 2px 8px oklch(0.55 0.12 240 / 0.15);
+    box-shadow: 0 4px 20px oklch(0.68 0.17 42 / 0.25), 0 2px 8px oklch(0.68 0.17 42 / 0.15);
   }
   
   .glow-line {
@@ -73,7 +73,7 @@
   }
   
   .gradient-text {
-    background: linear-gradient(135deg, oklch(0.55 0.14 165), oklch(0.55 0.12 240));
+    background: linear-gradient(135deg, oklch(0.64 0.18 46), oklch(0.74 0.15 62));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -92,7 +92,7 @@
 
 @layer utilities {
   .animated-border {
-    background: linear-gradient(90deg, oklch(0.55 0.14 165), oklch(0.55 0.12 240), oklch(0.55 0.14 165));
+    background: linear-gradient(90deg, oklch(0.64 0.18 46), oklch(0.74 0.15 62), oklch(0.64 0.18 46));
     background-size: 200% 200%;
     animation: gradient-flow 3s ease infinite;
   }
