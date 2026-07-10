@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowDown, Trophy, Sparkles, GraduationCap, MessageCircle } from "lucide-react";
+import { ArrowRight, ArrowDown, Trophy, Sparkles, GraduationCap, MessageCircle, Star, Flame } from "lucide-react";
 
 function scrollToNext() {
   const target = document.getElementById("after-hero");
@@ -41,7 +41,7 @@ export function Hero() {
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative -mt-16 overflow-hidden bg-hero pb-24 pt-28 text-hero-foreground sm:pb-28 sm:pt-32"
+      className="relative -mt-16 flex min-h-screen items-center overflow-hidden bg-hero pb-32 pt-28 text-hero-foreground sm:pb-36 sm:pt-32"
     >
       {/* Concentric rounded rings, offset to the right like the reference */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -97,43 +97,60 @@ export function Hero() {
         </div>
 
         {/* Right: photo with floating feature chips */}
-        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-          {/* Photo */}
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-sm" style={move(14)}>
-            <div className="absolute inset-0 overflow-hidden rounded-[2.5rem] bg-hero-ring/50 shadow-2xl ring-1 ring-hero-foreground/10">
-              <img
-                src="/images/hero-student.png"
-                alt="Smiling LinguaHub language student"
-                className="h-full w-full object-cover"
-              />
-            </div>
+        <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
+          {/* Soft glow behind the cutout */}
+          <div
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[85%] w-[85%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-hero-foreground/15 blur-3xl"
+            aria-hidden="true"
+          />
+          {/* Cutout photo (transparent PNG) */}
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-md" style={move(14)}>
+            <img
+              src="/images/hero-student.png"
+              alt="Smiling LinguaHub language student"
+              className="h-full w-full object-contain drop-shadow-2xl"
+            />
           </div>
 
-          {/* Floating chips */}
+          {/* Floating chips — balanced 3 left / 3 right, clear of the face */}
           <FloatingChip
-            className="left-0 top-6 sm:-left-6"
+            className="left-0 top-8 sm:-left-8"
             style={move(38)}
             icon={<Trophy className="h-5 w-5 text-hero" />}
             title="12 lessons"
             subtitle="completed"
           />
           <FloatingChip
-            className="right-0 top-1/4 sm:-right-4"
+            className="left-0 top-[44%] hidden sm:-left-12 sm:flex"
             style={move(52)}
-            icon={<Sparkles className="h-5 w-5 text-accent" />}
-            title="+250 XP"
-            subtitle="bonus earned"
-          />
-          <FloatingChip
-            className="left-0 bottom-16 sm:-left-8"
-            style={move(46)}
             icon={<MessageCircle className="h-5 w-5 text-hero" />}
             title="B1 level"
             subtitle="speaking"
           />
           <FloatingChip
-            className="right-2 bottom-6 sm:-right-6"
+            className="left-0 bottom-16 sm:-left-6"
+            style={move(46)}
+            icon={<Flame className="h-5 w-5 text-accent" />}
+            title="7-day"
+            subtitle="learning streak"
+          />
+          <FloatingChip
+            className="right-0 top-8 sm:-right-8"
+            style={move(58)}
+            icon={<Star className="h-5 w-5 text-hero" />}
+            title="4.9 / 5"
+            subtitle="student rating"
+          />
+          <FloatingChip
+            className="right-0 top-[44%] hidden sm:-right-12 sm:flex"
             style={move(30)}
+            icon={<Sparkles className="h-5 w-5 text-accent" />}
+            title="+250 XP"
+            subtitle="bonus earned"
+          />
+          <FloatingChip
+            className="right-0 bottom-16 sm:-right-6"
+            style={move(42)}
             icon={<GraduationCap className="h-5 w-5 text-accent" />}
             title="4 languages"
             subtitle="available"
@@ -186,7 +203,7 @@ function FloatingChip({
 }) {
   return (
     <div
-      className={`absolute flex items-center gap-3 rounded-2xl bg-card px-4 py-3 text-card-foreground shadow-xl ring-1 ring-black/5 transition-transform duration-100 ${className ?? ""}`}
+      className={`absolute flex items-center gap-3 rounded-2xl bg-card px-4 py-3 text-card-foreground shadow-[0_18px_50px_-12px_rgba(0,0,0,0.18)] ring-1 ring-black/[0.03] transition-transform duration-100 ${className ?? ""}`}
       style={style}
     >
       <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted">
