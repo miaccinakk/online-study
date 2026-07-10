@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | LinguaHub",
   },
   description:
-    "Learn a new language online with live lessons and native teachers. Courses in English, French, Spanish, and German for every level. Start free today.",
+    "Learn a new language online with live lessons and expert teachers. Courses in English, French, Spanish, and German for every level. Start free today.",
   keywords: [
     "online language school",
     "learn english online",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "learn german online",
     "language courses",
     "live language lessons",
-    "native teachers",
+    "expert teachers",
     "online language classes",
     "language learning",
   ],
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     siteName: "LinguaHub",
     title: "LinguaHub - Online Language School",
     description:
-      "Learn a new language online with live lessons and native teachers. Courses in English, French, Spanish, and German. Start free today.",
+      "Learn a new language online with live lessons and expert teachers. Courses in English, French, Spanish, and German. Start free today.",
     images: [
       {
         url: "/og-image.jpg",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "LinguaHub - Online Language School",
     description:
-      "Learn a new language online with live lessons and native teachers. Courses in English, French, Spanish, and German. Start free today.",
+      "Learn a new language online with live lessons and expert teachers. Courses in English, French, Spanish, and German. Start free today.",
     images: ["/og-image.jpg"],
   },
 };
@@ -93,7 +93,7 @@ export default function RootLayout({
     name: "LinguaHub",
     url: "https://linguahub.app",
     logo: "https://linguahub.app/logo.svg",
-    description: "Online language school offering live lessons with native teachers in English, French, Spanish, and German.",
+    description: "Online language school offering live lessons with expert teachers in English, French, Spanish, and German.",
     foundingDate: "2024",
     contactPoint: {
       "@type": "ContactPoint",
@@ -107,7 +107,7 @@ export default function RootLayout({
     "@type": "WebSite",
     name: "LinguaHub",
     url: "https://linguahub.app",
-    description: "Online language school with live lessons and native teachers.",
+    description: "Online language school with live lessons and expert teachers.",
     publisher: {
       "@type": "Organization",
       name: "LinguaHub"
@@ -128,7 +128,7 @@ export default function RootLayout({
       {
         "@type": "Course",
         name: "English Course",
-        description: "Learn English online with native teachers, from beginner to advanced.",
+        description: "Learn English online with expert teachers, from beginner to advanced.",
         provider: { "@type": "Organization", name: "LinguaHub", url: "https://linguahub.app" }
       },
       {
@@ -146,7 +146,7 @@ export default function RootLayout({
       {
         "@type": "Course",
         name: "German Course",
-        description: "Learn German online with experienced native teachers.",
+        description: "Learn German online with experienced expert teachers.",
         provider: { "@type": "Organization", name: "LinguaHub", url: "https://linguahub.app" }
       }
     ]
@@ -159,7 +159,7 @@ export default function RootLayout({
     url: "https://linguahub.app",
     applicationCategory: "EducationApplication",
     operatingSystem: "Web",
-    description: "Online language learning platform with live lessons and native teachers in English, French, Spanish, and German.",
+    description: "Online language learning platform with live lessons and expert teachers in English, French, Spanish, and German.",
     offers: {
       "@type": "Offer",
       price: "0",

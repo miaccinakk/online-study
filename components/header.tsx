@@ -66,14 +66,14 @@ export function Header() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled ? "bg-background/90 backdrop-blur-xl" : "bg-transparent"
-      } ${showDivider ? "border-b border-border/50 shadow-sm" : "border-b border-transparent"}`}
+      } ${showDivider ? "border-b border-border" : "border-b border-transparent"}`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 group">
           <div
             className={`relative flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300 ${
               scrolled
-                ? "bg-primary text-primary-foreground group-hover:glow-primary"
+                ? "bg-primary/10 text-[oklch(0.5_0.16_45)]"
                 : "bg-white/20 text-white backdrop-blur-sm"
             }`}
           >
@@ -84,7 +84,7 @@ export function Header() {
               scrolled ? "text-foreground" : "text-white"
             }`}
           >
-            Lingua<span className={scrolled ? "text-primary" : "text-white/80"}>Hub</span>
+            Lingua<span className={scrolled ? "text-[oklch(0.5_0.16_45)]" : "text-white/80"}>Hub</span>
           </span>
         </Link>
 

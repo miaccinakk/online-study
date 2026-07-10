@@ -214,7 +214,7 @@ export function Footer({ hideCTA = false }: FooterProps) {
                 </span>
               </Link>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                Online language school with live lessons and native teachers.
+                Online language school with live lessons and expert teachers.
               </p>
               <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary" />

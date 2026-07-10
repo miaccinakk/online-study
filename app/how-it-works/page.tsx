@@ -23,20 +23,20 @@ export const metadata: Metadata = {
   },
   title: "How LinguaHub Works - Online Language Lessons Explained",
   description:
-    "Learn how LinguaHub works. Create a free account, choose your language, join live online lessons with native teachers, and track your progress. Complete guide for new students.",
+    "Learn how LinguaHub works. Create a free account, choose your language, join live online lessons with expert teachers, and track your progress. Complete guide for new students.",
   keywords: [
     "how online language lessons work",
     "language learning guide",
     "live language classes online",
     "learn english french spanish german",
-    "native language teachers",
+    "expert language teachers",
     "online language school guide",
     "conversation lessons",
     "language course levels",
   ],
   openGraph: {
     title: "How LinguaHub Works - Complete Guide",
-    description: "Step-by-step guide on learning a language with LinguaHub. Live lessons, native teachers, and a clear path to fluency.",
+    description: "Step-by-step guide on learning a language with LinguaHub. Live lessons, expert teachers, and a clear path to fluency.",
   },
 };
 
@@ -64,7 +64,7 @@ export default function HowItWorksPage() {
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             LinguaHub is an online language school that helps you start speaking
             a new language from your very first lesson. Create your account,
-            choose a course, and join live classes with friendly native teachers.
+            choose a course, and join live classes with friendly expert teachers.
           </p>
         </div>
       </section>
@@ -98,7 +98,7 @@ export default function HowItWorksPage() {
                 icon: Video,
                 title: "3. Join Live Lessons",
                 description:
-                  "Attend interactive online lessons with native teachers and a small group of classmates. You practice speaking in real situations from your first class.",
+                  "Attend interactive online lessons with expert teachers and a small group of classmates. You practice speaking in real situations from your first class.",
               },
               {
                 icon: GraduationCap,
@@ -157,7 +157,7 @@ export default function HowItWorksPage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                  <span>Led by experienced native-speaking teachers</span>
+                  <span>Led by experienced professional teachers</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
@@ -271,8 +271,8 @@ export default function HowItWorksPage() {
               },
               {
                 icon: Globe,
-                title: "Native Teachers",
-                description: "Learn authentic pronunciation, natural expressions, and cultural context from experienced native speakers.",
+                title: "Expert Teachers",
+                description: "Learn authentic pronunciation, natural expressions, and cultural context from experienced professional teachers.",
               },
               {
                 icon: Award,

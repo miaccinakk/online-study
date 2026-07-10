@@ -89,7 +89,7 @@ const steps = [
   {
     step: 4,
     title: "Start Learning",
-    description: "Join live lessons and practice with native teachers",
+    description: "Join live lessons and practice with expert teachers",
   },
 ];
 
