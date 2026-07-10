@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowDown, Trophy, Sparkles, GraduationCap, MessageCircle, Globe } from "lucide-react";
+import { ArrowRight, ArrowDown, Trophy, Sparkles, GraduationCap, MessageCircle, Star, Flame } from "lucide-react";
 
 function scrollToNext() {
   const target = document.getElementById("after-hero");
@@ -41,7 +41,7 @@ export function Hero() {
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative -mt-16 overflow-hidden bg-hero pb-24 pt-28 text-hero-foreground sm:pb-28 sm:pt-32"
+      className="relative -mt-16 flex min-h-screen items-center overflow-hidden bg-hero pb-32 pt-28 text-hero-foreground sm:pb-36 sm:pt-32"
     >
       {/* Concentric rounded rings, offset to the right like the reference */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -66,12 +66,7 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:px-8">
         {/* Left: copy */}
         <div className="max-w-xl">
-          <span className="inline-flex items-center gap-2 rounded-full bg-hero-foreground/15 px-4 py-1.5 text-sm font-medium text-hero-foreground backdrop-blur-sm">
-            <Globe className="h-4 w-4" />
-            Live lessons with native teachers
-          </span>
-
-          <h1 className="mt-6 text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="text-balance text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
             Learn a new language with real teachers
           </h1>
 
@@ -102,43 +97,60 @@ export function Hero() {
         </div>
 
         {/* Right: photo with floating feature chips */}
-        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-          {/* Photo */}
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-sm" style={move(14)}>
-            <div className="absolute inset-0 overflow-hidden rounded-[2.5rem] bg-hero-ring/50 shadow-2xl ring-1 ring-hero-foreground/10">
-              <img
-                src="/images/hero-student.png"
-                alt="Smiling LinguaHub language student"
-                className="h-full w-full object-cover"
-              />
-            </div>
+        <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
+          {/* Soft glow behind the cutout */}
+          <div
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[85%] w-[85%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-hero-foreground/15 blur-3xl"
+            aria-hidden="true"
+          />
+          {/* Cutout photo (transparent PNG) */}
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-md" style={move(14)}>
+            <img
+              src="/images/hero-student.png"
+              alt="Smiling LinguaHub language student"
+              className="h-full w-full object-contain drop-shadow-2xl"
+            />
           </div>
 
-          {/* Floating chips */}
+          {/* Floating chips — balanced 3 left / 3 right, clear of the face */}
           <FloatingChip
-            className="left-0 top-6 sm:-left-6"
+            className="left-0 top-8 sm:-left-8"
             style={move(38)}
             icon={<Trophy className="h-5 w-5 text-hero" />}
             title="12 lessons"
             subtitle="completed"
           />
           <FloatingChip
-            className="right-0 top-1/4 sm:-right-4"
+            className="left-0 top-[44%] hidden sm:-left-12 sm:flex"
             style={move(52)}
-            icon={<Sparkles className="h-5 w-5 text-accent" />}
-            title="+250 XP"
-            subtitle="bonus earned"
-          />
-          <FloatingChip
-            className="left-0 bottom-16 sm:-left-8"
-            style={move(46)}
             icon={<MessageCircle className="h-5 w-5 text-hero" />}
             title="B1 level"
             subtitle="speaking"
           />
           <FloatingChip
-            className="right-2 bottom-6 sm:-right-6"
+            className="left-0 bottom-16 sm:-left-6"
+            style={move(46)}
+            icon={<Flame className="h-5 w-5 text-accent" />}
+            title="7-day"
+            subtitle="learning streak"
+          />
+          <FloatingChip
+            className="right-0 top-8 sm:-right-8"
+            style={move(58)}
+            icon={<Star className="h-5 w-5 text-hero" />}
+            title="4.9 / 5"
+            subtitle="student rating"
+          />
+          <FloatingChip
+            className="right-0 top-[44%] hidden sm:-right-12 sm:flex"
             style={move(30)}
+            icon={<Sparkles className="h-5 w-5 text-accent" />}
+            title="+250 XP"
+            subtitle="bonus earned"
+          />
+          <FloatingChip
+            className="right-0 bottom-16 sm:-right-6"
+            style={move(42)}
             icon={<GraduationCap className="h-5 w-5 text-accent" />}
             title="4 languages"
             subtitle="available"
@@ -146,16 +158,32 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Rounded bottom transition + scroll-down button */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 rounded-t-[3rem] bg-background sm:h-20" />
-      <button
-        type="button"
-        onClick={scrollToNext}
-        aria-label="Scroll to content"
-        className="absolute bottom-3 left-1/2 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-hero text-hero-foreground shadow-lg ring-4 ring-background transition-transform hover:translate-y-0.5 sm:h-16 sm:w-16"
-      >
-        <ArrowDown className="h-6 w-6 animate-bounce" />
-      </button>
+      {/* Wave bottom transition */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0">
+        <svg
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          className="h-16 w-full sm:h-24"
+          aria-hidden="true"
+        >
+          <path
+            d="M0,52 C 360,96 500,96 720,64 C 940,32 1080,32 1440,60 L1440,120 L0,120 Z"
+            fill="var(--color-background)"
+          />
+        </svg>
+      </div>
+
+      {/* Center notch: white cutout with round scroll-down button nested inside */}
+      <div className="absolute bottom-1 left-1/2 z-10 flex h-24 w-24 -translate-x-1/2 items-center justify-center rounded-full bg-background sm:bottom-2">
+        <button
+          type="button"
+          onClick={scrollToNext}
+          aria-label="Scroll to content"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-hero text-hero-foreground shadow-lg transition-transform hover:translate-y-0.5"
+        >
+          <ArrowDown className="h-6 w-6 animate-bounce" />
+        </button>
+      </div>
     </section>
   );
 }
@@ -175,7 +203,7 @@ function FloatingChip({
 }) {
   return (
     <div
-      className={`absolute flex items-center gap-3 rounded-2xl bg-card px-4 py-3 text-card-foreground shadow-xl ring-1 ring-black/5 transition-transform duration-100 ${className ?? ""}`}
+      className={`absolute flex items-center gap-3 rounded-2xl bg-card px-4 py-3 text-card-foreground shadow-[0_18px_50px_-12px_rgba(0,0,0,0.18)] ring-1 ring-black/[0.03] transition-transform duration-100 ${className ?? ""}`}
       style={style}
     >
       <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted">
