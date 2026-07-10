@@ -10,9 +10,9 @@ const features = [
   },
   {
     icon: Globe,
-    title: "Native Teachers",
+    title: "Expert Teachers",
     description:
-      "Learn from friendly, experienced native speakers who know how to make a new language feel natural, clear, and fun to practice.",
+      "Learn from friendly, experienced teachers who know how to make a new language feel natural, clear, and fun to practice.",
     tone: "violet",
   },
   {
@@ -77,7 +77,7 @@ export function Features() {
             Learning a language, made warm and simple
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Live lessons, native teachers, and a focus on real conversation help
+            Live lessons, expert teachers, and a focus on real conversation help
             you make progress you can actually feel — without the pressure.
           </p>
         </div>

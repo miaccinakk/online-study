@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   },
   title: "About Us",
   description:
-    "Learn about LinguaHub - an online language school with native teachers and live lessons, on a mission to help everyone speak a new language with confidence.",
+    "Learn about LinguaHub - an online language school with expert teachers and live lessons, on a mission to help everyone speak a new language with confidence.",
   openGraph: {
     title: "About LinguaHub",
     description: "Learn about our mission to make language learning simple, social, and accessible for everyone.",
@@ -23,9 +23,9 @@ const teamValues = [
   },
   {
     icon: Globe,
-    title: "Native Teachers",
+    title: "Expert Teachers",
     description:
-      "Our teachers are experienced native speakers who make a new language feel natural and fun.",
+      "Our teachers are experienced educators who make a new language feel natural and fun.",
   },
   {
     icon: Users,
@@ -74,7 +74,7 @@ export default function AboutPage() {
             drills.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            By combining live online lessons with friendly native teachers and a
+            By combining live online lessons with friendly expert teachers and a
             conversation-first approach, we help students in English, French,
             Spanish, and German start speaking from their very first class and
             keep improving week after week.
@@ -117,8 +117,8 @@ export default function AboutPage() {
             through language.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            Our teachers are native speakers with years of classroom and online
-            teaching experience. They know how to keep lessons engaging, correct
+            Our teachers are experienced educators with years of classroom and
+            online teaching experience. They know how to keep lessons engaging, correct
             you kindly, and build the confidence you need to use your new
             language in the real world.
           </p>

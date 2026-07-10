@@ -121,7 +121,7 @@ export default function SiteMapPage() {
                   All Courses
                 </span>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Browse all {courses.length} language courses with live lessons and native teachers
+                  Browse all {courses.length} language courses with live lessons and expert teachers
                 </p>
               </Link>
             </div>

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   title: "Language Courses | LinguaHub Online School",
   description:
-    "Browse our online language courses. Learn English, French, Spanish, and German with native teachers through live, conversation-first lessons.",
+    "Browse our online language courses. Learn English, French, Spanish, and German with expert teachers through live, conversation-first lessons.",
   keywords: [
     "online language courses",
     "learn english online",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Language Courses | LinguaHub Online School",
-    description: "Learn English, French, Spanish, and German online with native teachers.",
+    description: "Learn English, French, Spanish, and German online with expert teachers.",
   },
 };
 
@@ -42,7 +42,7 @@ export default function CoursesPage() {
             <div className="flex flex-col items-start text-left">
               <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground mb-6">
                 <Sparkles className="h-4 w-4 text-primary" />
-                <span>Live lessons with native teachers</span>
+                <span>Live lessons with expert teachers</span>
               </div>
 
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">

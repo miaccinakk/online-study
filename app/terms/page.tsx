@@ -46,7 +46,7 @@ export default function TermsOfServicePage() {
             </h2>
             <p className="text-muted-foreground leading-relaxed">
               LinguaHub provides online language education services, including
-              live group lessons with native teachers, interactive exercises, and
+              live group lessons with expert teachers, interactive exercises, and
               learning materials in English, French, Spanish, and German.
             </p>
           </section>

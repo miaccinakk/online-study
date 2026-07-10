@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   },
   title: "Create Account",
   description:
-    "Create a free LinguaHub account to start learning English, French, Spanish, or German with live lessons and native teachers.",
+    "Create a free LinguaHub account to start learning English, French, Spanish, or German with live lessons and expert teachers.",
   openGraph: {
     title: "Create Account - LinguaHub",
     description: "Join LinguaHub and start learning a new language today.",

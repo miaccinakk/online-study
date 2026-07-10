@@ -63,7 +63,7 @@ export function CoursesPreview() {
               <span className="gradient-text">Courses</span>
             </h2>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-              Live, conversation-first lessons with native teachers.
+              Live, conversation-first lessons with expert teachers.
               Pick your language and start speaking from day one.
             </p>
           </div>

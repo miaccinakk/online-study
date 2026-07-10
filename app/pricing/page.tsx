@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   title: "Pricing - LinguaHub Online Language School",
   description:
-    "Choose the right LinguaHub plan. Free, Pro ($15/mo), or Premium ($25/mo) with live group lessons, native teachers, one-on-one classes, and certificates.",
+    "Choose the right LinguaHub plan. Free, Pro ($15/mo), or Premium ($25/mo) with live group lessons, expert teachers, one-on-one classes, and certificates.",
 };
 
 const tiers = [
@@ -335,7 +335,7 @@ export default function PricingPage() {
             <div>
               <p className="text-sm font-medium text-foreground">About Live Lessons</p>
               <p className="mt-1 text-sm text-muted-foreground">
-                Live lessons are hosted online with native teachers in small groups. Group lesson allowances reset monthly with your billing cycle, and Premium members can book one-on-one lessons for personalized practice.
+                Live lessons are hosted online with expert teachers in small groups. Group lesson allowances reset monthly with your billing cycle, and Premium members can book one-on-one lessons for personalized practice.
               </p>
             </div>
           </div>

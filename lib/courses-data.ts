@@ -42,7 +42,7 @@ export const courses: Course[] = [
     code: "EN",
     title: "English: From Beginner to Confident Speaker",
     description:
-      "Learn English with native-speaking teachers. Build vocabulary, master grammar, and start holding real conversations in weeks, not years.",
+      "Learn English with experienced teachers. Build vocabulary, master grammar, and start holding real conversations in weeks, not years.",
     category: "business",
     image: "/images/courses/english.png",
     content: `
@@ -52,7 +52,7 @@ Our English course is designed for learners who want practical, usable language 
 
 ## How Lessons Work
 
-Every week you join small live group classes led by experienced native teachers, plus interactive exercises you can complete at your own pace. You practice speaking from day one and get personal feedback on your progress.
+Every week you join small live group classes led by experienced teachers, plus interactive exercises you can complete at your own pace. You practice speaking from day one and get personal feedback on your progress.
 
 ## Who It's For
 
@@ -66,7 +66,7 @@ This course fits busy professionals, students, and travelers who want to use Eng
       "Writing emails and messages that sound natural",
     ],
     includes: [
-      "Live group lessons with native teachers",
+      "Live group lessons with expert teachers",
       "Interactive exercises and homework",
       "Personal feedback on your speaking",
       "Downloadable lesson materials",

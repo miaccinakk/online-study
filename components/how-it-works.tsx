@@ -45,7 +45,7 @@ export function HowItWorks() {
             <span className="gradient-text">teacher</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Every LinguaHub course is built and taught by an experienced native
+            Every LinguaHub course is built and taught by an experienced
             teacher who cares about your progress.
           </p>
         </div>

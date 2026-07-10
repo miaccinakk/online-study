@@ -1,62 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/lib/auth-context";
-import { authAPI, userAPI } from "@/lib/api";
-import { Mail, Lock, Eye, EyeOff, Loader2, AlertCircle } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, AlertCircle } from "lucide-react";
 
 export default function LoginPage() {
-  const router = useRouter();
-  const { login, updateUser } = useAuth();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null);
-    setIsLoading(true);
-
-    try {
-      // Login and get tokens
-      const authResponse = await authAPI.login(email, password);
-      login(authResponse.access, authResponse.refresh);
-
-      // Fetch user profile
-      const profile = await userAPI.getProfile();
-      updateUser({
-        id: profile.id,
-        email: profile.email,
-        first_name: profile.first_name,
-        last_name: profile.last_name,
-        phone: profile.phone,
-        avatar: profile.avatar,
-        is_verified: profile.is_verified,
-      });
-
-      router.push("/dashboard");
-    } catch (err) {
-      const error = err as Error & {
-        data?: { detail?: string; non_field_errors?: string[] };
-      };
-      if (error.data?.detail) {
-        setError(error.data.detail);
-      } else if (error.data?.non_field_errors) {
-        setError(error.data.non_field_errors[0]);
-      } else {
-        setError(
-          error.message || "Login failed. Please check your credentials.",
-        );
-      }
-    } finally {
-      setIsLoading(false);
-    }
+    // This feature is temporarily disabled — show a notice instead of signing in.
+    setError("This feature is currently unavailable. Please try again later.");
   };
 
   return (
@@ -149,21 +107,8 @@ export default function LoginPage() {
             </div>
 
             {/* Submit Button */}
-            <Button
-              type="submit"
-              variant="glow"
-              size="lg"
-              className="w-full"
-              disabled={isLoading}
-            >
-              {isLoading ? (
-                <>
-                  <Loader2 className="h-5 w-5 animate-spin" />
-                  Signing in...
-                </>
-              ) : (
-                "Sign In"
-              )}
+            <Button type="submit" variant="glow" size="lg" className="w-full">
+              Sign In
             </Button>
           </form>
 
