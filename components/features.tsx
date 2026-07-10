@@ -1,46 +1,48 @@
-import { MessageCircle, Users, Video, CalendarClock, Award, Globe } from "lucide-react";
+"use client";
 
-const features = [
+import { MessageCircle, Users, Video, CalendarClock, Award, Globe } from "lucide-react";
+import { useI18n, type TranslationKey } from "@/lib/i18n";
+
+const features: {
+  icon: React.ElementType;
+  titleKey: TranslationKey;
+  descKey: TranslationKey;
+  tone: string;
+}[] = [
   {
     icon: MessageCircle,
-    title: "Conversation First",
-    description:
-      "You start speaking from your very first lesson. Our teachers focus on real conversations, not endless grammar drills, so you build confidence fast.",
+    titleKey: "features.conversation.title",
+    descKey: "features.conversation.desc",
     tone: "orange",
   },
   {
     icon: Globe,
-    title: "Expert Teachers",
-    description:
-      "Learn from friendly, experienced teachers who know how to make a new language feel natural, clear, and fun to practice.",
+    titleKey: "features.teachers.title",
+    descKey: "features.teachers.desc",
     tone: "violet",
   },
   {
     icon: Users,
-    title: "Small Groups",
-    description:
-      "Classes stay small so everyone gets plenty of speaking time and personal attention. Learn together with students at your level.",
+    titleKey: "features.groups.title",
+    descKey: "features.groups.desc",
     tone: "berry",
   },
   {
     icon: Video,
-    title: "Live Online Lessons",
-    description:
-      "Join interactive lessons from anywhere. All you need is an internet connection to learn with your teacher and classmates in real time.",
+    titleKey: "features.live.title",
+    descKey: "features.live.desc",
     tone: "violet",
   },
   {
     icon: CalendarClock,
-    title: "Flexible Schedule",
-    description:
-      "Pick times that fit your life and learn at your own pace. Reschedule when you need to and never miss the material.",
+    titleKey: "features.flexible.title",
+    descKey: "features.flexible.desc",
     tone: "coral",
   },
   {
     icon: Award,
-    title: "Track Your Progress",
-    description:
-      "Follow a clear path with progress tracking and certificates, so you always know how far you've come and what's next.",
+    titleKey: "features.progress.title",
+    descKey: "features.progress.desc",
     tone: "berry",
   },
 ];
@@ -53,6 +55,7 @@ const toneStyles: Record<string, string> = {
 };
 
 export function Features() {
+  const { t } = useI18n();
   return (
     <section
       className="relative overflow-hidden py-24 sm:py-32"
@@ -68,17 +71,16 @@ export function Features() {
         {/* Section header */}
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-hero/12 px-4 py-1.5 text-sm font-semibold text-hero">
-            Why LinguaHub
+            {t("features.badge")}
           </span>
           <h2
             id="features-heading"
             className="mt-5 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl"
           >
-            Learning a language, made warm and simple
+            {t("features.title")}
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Live lessons, expert teachers, and a focus on real conversation help
-            you make progress you can actually feel — without the pressure.
+            {t("features.subtitle")}
           </p>
         </div>
 
@@ -88,7 +90,7 @@ export function Features() {
             const Icon = feature.icon;
             return (
               <div
-                key={feature.title}
+                key={feature.titleKey}
                 className="group rounded-3xl bg-card p-8 shadow-[0_18px_50px_-24px_rgba(0,0,0,0.18)] ring-1 ring-border/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_-24px_rgba(0,0,0,0.22)]"
               >
                 <div
@@ -97,10 +99,10 @@ export function Features() {
                   <Icon className="h-7 w-7" />
                 </div>
                 <h3 className="mt-6 text-xl font-semibold text-foreground">
-                  {feature.title}
+                  {t(feature.titleKey)}
                 </h3>
                 <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
-                  {feature.description}
+                  {t(feature.descKey)}
                 </p>
               </div>
             );

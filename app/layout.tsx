@@ -6,6 +6,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CookieBanner } from "@/components/cookie-banner";
 import { AuthProvider } from "@/lib/auth-context";
+import { I18nProvider } from "@/lib/i18n";
 import { PaymentTrackingProvider } from "@/lib/payment-tracking-context";
 import { PaymentStatusIndicator } from "@/components/payment-status-indicator";
 import { YandexMetricaProvider } from "@artginzburg/next-ym";
@@ -206,15 +207,17 @@ export default function RootLayout({
               gtag('config', 'G-Q9RSBYSVFK');
             `}
           </Script>
-          <AuthProvider>
-            <PaymentTrackingProvider>
-              <Header />
-              <main>{children}</main>
-              <Footer />
-              <CookieBanner />
-              <PaymentStatusIndicator />
-            </PaymentTrackingProvider>
-          </AuthProvider>
+          <I18nProvider>
+            <AuthProvider>
+              <PaymentTrackingProvider>
+                <Header />
+                <main>{children}</main>
+                <Footer />
+                <CookieBanner />
+                <PaymentStatusIndicator />
+              </PaymentTrackingProvider>
+            </AuthProvider>
+          </I18nProvider>
         </YandexMetricaProvider>
       </body>
     </html>

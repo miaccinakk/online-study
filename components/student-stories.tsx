@@ -1,5 +1,8 @@
+"use client";
+
 import { ScrollRail } from "@/components/scroll-rail";
 import { StoryCard, type Story } from "@/components/story-card";
+import { useI18n } from "@/lib/i18n";
 
 const stories: Story[] = [
   {
@@ -47,6 +50,7 @@ const stories: Story[] = [
 ];
 
 export function StudentStories() {
+  const { t } = useI18n();
   return (
     <section className="relative overflow-hidden py-20 sm:py-28" aria-labelledby="stories-heading">
       <div className="absolute inset-0 isometric-grid opacity-20" />
@@ -55,11 +59,11 @@ export function StudentStories() {
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <h2 id="stories-heading" className="text-3xl font-bold tracking-tight sm:text-4xl">
-            <span className="text-foreground">How LinguaHub </span>
-            <span className="gradient-text">changed their lives</span>
+            <span className="text-foreground">{t("stories.titleA")}</span>
+            <span className="gradient-text">{t("stories.titleB")}</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Real learners, real progress. Hear their stories in their own words.
+            {t("stories.subtitle")}
           </p>
         </div>
       </div>

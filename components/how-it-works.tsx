@@ -1,30 +1,38 @@
+"use client";
+
 import Image from "next/image";
 import { GraduationCap, Users, Globe, Award } from "lucide-react";
+import { useI18n, type TranslationKey } from "@/lib/i18n";
 
-const stats = [
+const stats: {
+  icon: React.ElementType;
+  valueKey: TranslationKey;
+  labelKey: TranslationKey;
+}[] = [
   {
     icon: GraduationCap,
-    value: "8+ years",
-    label: "Teaching languages online and in the classroom",
+    valueKey: "teacher.stat1.value",
+    labelKey: "teacher.stat1.label",
   },
   {
     icon: Users,
-    value: "2,000+",
-    label: "Students guided from beginner to confident speaker",
+    valueKey: "teacher.stat2.value",
+    labelKey: "teacher.stat2.label",
   },
   {
     icon: Award,
-    value: "CELTA · C2",
-    label: "Certified teacher with a master's in linguistics",
+    valueKey: "teacher.stat3.value",
+    labelKey: "teacher.stat3.label",
   },
   {
     icon: Globe,
-    value: "4 languages",
-    label: "Teaches English, French, Spanish and German",
+    valueKey: "teacher.stat4.value",
+    labelKey: "teacher.stat4.label",
   },
 ];
 
 export function HowItWorks() {
+  const { t } = useI18n();
   return (
     <section
       className="relative py-20 sm:py-28 overflow-hidden"
@@ -41,12 +49,11 @@ export function HowItWorks() {
             id="teacher-heading"
             className="text-3xl font-bold tracking-tight sm:text-4xl"
           >
-            <span className="text-foreground">Meet your </span>
-            <span className="gradient-text">teacher</span>
+            <span className="text-foreground">{t("teacher.titleA")}</span>
+            <span className="gradient-text">{t("teacher.titleB")}</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Every LinguaHub course is built and taught by an experienced
-            teacher who cares about your progress.
+            {t("teacher.subtitle")}
           </p>
         </div>
 
@@ -54,18 +61,14 @@ export function HowItWorks() {
           {/* Left: author info directly on the section background */}
           <div>
             <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-              Emma Laurent
+              {t("teacher.name")}
             </h3>
             <p className="mt-1 text-sm font-medium text-muted-foreground">
-              Lead teacher &amp; head of curriculum at LinguaHub
+              {t("teacher.role")}
             </p>
 
             <p className="mt-5 max-w-xl text-pretty leading-relaxed text-foreground/90">
-              &ldquo;I built every LinguaHub course around real conversation.
-              You won&apos;t memorize endless grammar tables here &mdash;
-              you&apos;ll be speaking from your very first lesson. My goal is
-              simple: to help you feel confident using your new language in the
-              real world, with people, not just on paper.&rdquo;
+              {t("teacher.quote")}
             </p>
 
             {/* UTP cards sitting on the common background */}
@@ -74,7 +77,7 @@ export function HowItWorks() {
                 const Icon = stat.icon;
                 return (
                   <div
-                    key={stat.value}
+                    key={stat.valueKey}
                     className="rounded-xl border border-border/40 bg-card/70 p-4"
                   >
                     <div className="flex items-center gap-2">
@@ -82,11 +85,11 @@ export function HowItWorks() {
                         <Icon className="h-4 w-4" />
                       </span>
                       <span className="text-base font-bold text-foreground">
-                        {stat.value}
+                        {t(stat.valueKey)}
                       </span>
                     </div>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {stat.label}
+                      {t(stat.labelKey)}
                     </p>
                   </div>
                 );

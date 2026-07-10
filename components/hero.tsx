@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowDown, Trophy, Sparkles, GraduationCap, MessageCircle, Star, Flame } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 function scrollToNext() {
   const target = document.getElementById("after-hero");
@@ -15,6 +16,7 @@ function scrollToNext() {
 }
 
 export function Hero() {
+  const { t } = useI18n();
   const sectionRef = useRef<HTMLElement>(null);
   // Normalized mouse offset from center, range roughly [-1, 1]
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -67,11 +69,11 @@ export function Hero() {
         {/* Left: copy */}
         <div className="max-w-xl">
           <h1 className="text-balance text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
-            Learn a new language with real teachers
+            {t("hero.title")}
           </h1>
 
           <p className="mt-6 max-w-md text-pretty text-lg leading-relaxed text-hero-foreground/85">
-            Live, conversation-first lessons that get you speaking from day one.
+            {t("hero.subtitle")}
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -81,7 +83,7 @@ export function Hero() {
               className="rounded-full bg-hero-foreground px-8 text-base font-semibold text-hero shadow-lg hover:bg-hero-foreground/90"
             >
               <Link href="/register" className="flex items-center gap-2">
-                Get Started Free
+                {t("hero.getStartedFree")}
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
@@ -91,7 +93,7 @@ export function Hero() {
               variant="outline"
               className="rounded-full border-hero-foreground/40 bg-transparent px-8 text-base font-semibold text-hero-foreground hover:bg-hero-foreground/10 hover:text-hero-foreground"
             >
-              <Link href="/courses">Explore Courses</Link>
+              <Link href="/courses">{t("hero.exploreCourses")}</Link>
             </Button>
           </div>
         </div>
@@ -117,43 +119,43 @@ export function Hero() {
             className="left-0 top-8 sm:-left-8"
             style={move(38)}
             icon={<Trophy className="h-5 w-5 text-hero" />}
-            title="12 lessons"
-            subtitle="completed"
+            title={t("hero.chip.lessonsTitle")}
+            subtitle={t("hero.chip.lessonsSub")}
           />
           <FloatingChip
             className="left-0 top-[44%] hidden sm:-left-12 sm:flex"
             style={move(52)}
             icon={<MessageCircle className="h-5 w-5 text-hero" />}
-            title="B1 level"
-            subtitle="speaking"
+            title={t("hero.chip.levelTitle")}
+            subtitle={t("hero.chip.levelSub")}
           />
           <FloatingChip
             className="left-0 bottom-16 sm:-left-6"
             style={move(46)}
             icon={<Flame className="h-5 w-5 text-accent" />}
-            title="7-day"
-            subtitle="learning streak"
+            title={t("hero.chip.streakTitle")}
+            subtitle={t("hero.chip.streakSub")}
           />
           <FloatingChip
             className="right-0 top-8 sm:-right-8"
             style={move(58)}
             icon={<Star className="h-5 w-5 text-hero" />}
-            title="4.9 / 5"
-            subtitle="student rating"
+            title={t("hero.chip.ratingTitle")}
+            subtitle={t("hero.chip.ratingSub")}
           />
           <FloatingChip
             className="right-0 top-[44%] hidden sm:-right-12 sm:flex"
             style={move(30)}
             icon={<Sparkles className="h-5 w-5 text-accent" />}
-            title="+250 XP"
-            subtitle="bonus earned"
+            title={t("hero.chip.xpTitle")}
+            subtitle={t("hero.chip.xpSub")}
           />
           <FloatingChip
             className="right-0 bottom-16 sm:-right-6"
             style={move(42)}
             icon={<GraduationCap className="h-5 w-5 text-accent" />}
-            title="4 languages"
-            subtitle="available"
+            title={t("hero.chip.langTitle")}
+            subtitle={t("hero.chip.langSub")}
           />
         </div>
       </div>

@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle, Briefcase, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollRail } from "@/components/scroll-rail";
 import { courses, categories, type CourseCategory } from "@/lib/courses-data";
+import { useI18n } from "@/lib/i18n";
 
 const categoryIcons: Record<CourseCategory, React.ElementType> = {
   conversation: MessageCircle,
@@ -46,6 +49,7 @@ const categoryColors: Record<
 };
 
 export function CoursesPreview() {
+  const { t } = useI18n();
   const featured = courses.slice(0, 6);
 
   return (
@@ -59,17 +63,16 @@ export function CoursesPreview() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="text-left">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              <span className="text-foreground">Explore Our </span>
-              <span className="gradient-text">Courses</span>
+              <span className="text-foreground">{t("coursesPreview.titleA")}</span>
+              <span className="gradient-text">{t("coursesPreview.titleB")}</span>
             </h2>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-              Live, conversation-first lessons with expert teachers.
-              Pick your language and start speaking from day one.
+              {t("coursesPreview.subtitle")}
             </p>
           </div>
           <Button asChild variant="outline" className="hidden sm:inline-flex">
             <Link href="/courses" className="flex items-center gap-2">
-              View all courses
+              {t("coursesPreview.viewAll")}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
@@ -118,7 +121,7 @@ export function CoursesPreview() {
                     {course.description}
                   </p>
                   <span className={`mt-auto inline-flex items-center gap-1 pt-4 text-sm font-medium ${c.text}`}>
-                    View course
+                    {t("coursesPreview.viewCourse")}
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
@@ -132,7 +135,7 @@ export function CoursesPreview() {
       <div className="relative mx-auto mt-4 max-w-6xl px-4 sm:hidden">
         <Button asChild variant="link" className="text-primary px-0">
           <Link href="/courses" className="flex items-center gap-2">
-            View all courses
+            {t("coursesPreview.viewAll")}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </Button>
