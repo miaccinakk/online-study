@@ -60,11 +60,21 @@ export function Header() {
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground transition-all duration-300 group-hover:glow-primary">
+          <div
+            className={`relative flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300 ${
+              scrolled
+                ? "bg-primary text-primary-foreground group-hover:glow-primary"
+                : "bg-white/20 text-white backdrop-blur-sm"
+            }`}
+          >
             <Languages className="h-5 w-5" />
           </div>
-          <span className="text-lg font-bold text-foreground">
-            Lingua<span className="text-primary">Hub</span>
+          <span
+            className={`text-lg font-bold transition-colors duration-300 ${
+              scrolled ? "text-foreground" : "text-white"
+            }`}
+          >
+            Lingua<span className={scrolled ? "text-primary" : "text-white/80"}>Hub</span>
           </span>
         </Link>
 
@@ -74,7 +84,11 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-4 py-2 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-muted/80 hover:text-foreground"
+              className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 ${
+                scrolled
+                  ? "text-muted-foreground hover:bg-muted/80 hover:text-foreground"
+                  : "text-white/90 hover:bg-white/15 hover:text-white"
+              }`}
             >
               {link.label}
             </Link>
@@ -89,7 +103,9 @@ export function Header() {
             <div className="relative" ref={userMenuRef}>
               <button
                 onClick={() => setUserMenuOpen(!userMenuOpen)}
-                className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted/80 transition-colors"
+                className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors ${
+                  scrolled ? "hover:bg-muted/80" : "hover:bg-white/15"
+                }`}
               >
                 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden border border-border">
                   {user.avatar ? (
@@ -102,11 +118,15 @@ export function Header() {
                     <User className="h-4 w-4 text-primary" />
                   )}
                 </div>
-                <span className="text-sm font-medium text-foreground max-w-[120px] truncate">
+                <span
+                  className={`text-sm font-medium max-w-[120px] truncate ${
+                    scrolled ? "text-foreground" : "text-white"
+                  }`}
+                >
                   {user.first_name}
                 </span>
                 <ChevronDown
-                  className={`h-4 w-4 text-muted-foreground transition-transform ${userMenuOpen ? "rotate-180" : ""}`}
+                  className={`h-4 w-4 transition-transform ${scrolled ? "text-muted-foreground" : "text-white/80"} ${userMenuOpen ? "rotate-180" : ""}`}
                 />
               </button>
 
@@ -159,7 +179,11 @@ export function Header() {
             </div>
           ) : (
             <>
-              <Button asChild variant="ghost">
+              <Button
+                asChild
+                variant="ghost"
+                className={scrolled ? "" : "text-white hover:bg-white/15 hover:text-white"}
+              >
                 <Link href="/login">Sign In</Link>
               </Button>
               <Button asChild variant="glow">
@@ -172,7 +196,11 @@ export function Header() {
         {/* Mobile Menu Button */}
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-lg p-2 text-muted-foreground transition-colors hover:bg-muted/80 hover:text-foreground md:hidden"
+          className={`inline-flex items-center justify-center rounded-lg p-2 transition-colors md:hidden ${
+            scrolled
+              ? "text-muted-foreground hover:bg-muted/80 hover:text-foreground"
+              : "text-white hover:bg-white/15"
+          }`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
