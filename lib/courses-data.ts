@@ -7,6 +7,7 @@ export interface Course {
   description: string;
   category: CourseCategory;
   image: string;
+  previewVideo?: string;
   content: string;
   learn: string[];
   includes: string[];

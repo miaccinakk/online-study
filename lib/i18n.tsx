@@ -125,6 +125,13 @@ export const translations = {
     "footer.link.terms": "Terms of Service",
     "footer.link.sitemap": "Site Map",
     "footer.rights": "All rights reserved.",
+
+    // Course preview
+    "coursePreview.watch": "Watch preview",
+    "coursePreview.hint": "Take a quick look inside this course",
+    "coursePreview.play": "Play course preview",
+    "coursePreview.modalTitle": "Course preview",
+    "coursePreview.close": "Close preview",
   },
 
   ru: {
@@ -240,6 +247,13 @@ export const translations = {
     "footer.link.terms": "Условия использования",
     "footer.link.sitemap": "Карта сайта",
     "footer.rights": "Все права защищены.",
+
+    // Course preview
+    "coursePreview.watch": "Смотреть превью",
+    "coursePreview.hint": "Загляните внутрь этого курса",
+    "coursePreview.play": "Запустить превью курса",
+    "coursePreview.modalTitle": "Превью курса",
+    "coursePreview.close": "Закрыть превью",
   },
 } as const;
 

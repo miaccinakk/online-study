@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, BookOpen, ListChecks, Trophy, Link2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CoursePreview } from "@/components/course-preview";
 import { courses, getCourseBySlug, categories } from "@/lib/courses-data";
 
 interface PageProps {
