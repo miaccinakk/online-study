@@ -82,7 +82,7 @@ export default async function CoursePage({ params }: PageProps) {
 
       {/* Photo Hero */}
       <div className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8">
-        <header className="relative flex min-h-[420px] flex-col justify-end overflow-hidden rounded-2xl p-8 pb-12 sm:min-h-[480px] sm:p-12 sm:pb-16">
+        <header className="relative flex min-h-[420px] flex-col justify-end overflow-hidden rounded-2xl p-8 pb-16 sm:min-h-[480px] sm:p-12 sm:pb-24">
           <div className="absolute inset-0">
             <Image
               src={course.image || "/placeholder.svg"}

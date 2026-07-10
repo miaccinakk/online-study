@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, User, LogOut, Settings, ChevronDown, CreditCard, MessageCircle, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,19 +16,28 @@ const navLinks = [
 
 export function Header() {
   const { user, isAuthenticated, isLoading, logout } = useAuth();
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
 
+  // The transparent-on-hero header only exists on the home page, which has the
+  // orange hero behind it. On every other page the header always uses the solid
+  // "scrolled" style so the logo and nav stay legible.
+  const isHome = pathname === "/";
+  const scrolled = !isHome || hasScrolled;
+
   useEffect(() => {
+    if (!isHome) return;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setHasScrolled(window.scrollY > 10);
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHome]);
 
   // Close user menu when clicking outside
   useEffect(() => {

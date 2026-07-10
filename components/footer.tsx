@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Languages, Mail, MessageCircle, Video, Award, Globe } from "lucide-react";
+import { Languages, Mail, MessageCircle, Video, Award, Mic, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth-context";
 
@@ -55,7 +55,7 @@ export function Footer({ hideCTA = false }: FooterProps) {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/60 to-muted/40" />
 
           {/* Subtle radial glow */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,oklch(0.55_0.14_165_/_0.06),transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,oklch(0.64_0.18_46_/_0.06),transparent_60%)]" />
 
           <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -81,75 +81,109 @@ export function Footer({ hideCTA = false }: FooterProps) {
                 </div>
               </div>
 
-              {/* Right side - Simple infographic */}
+              {/* Right side - Desktop lesson screen */}
               <div className="relative flex items-center justify-center lg:justify-end">
-                <div className="relative w-full max-w-sm">
-                  {/* Phone mockup outline */}
-                  <div className="relative mx-auto w-56 rounded-[2.5rem] border-2 border-border/30 bg-card/30 p-3 backdrop-blur-sm">
-                    {/* Phone screen */}
-                    <div className="overflow-hidden rounded-[2rem] bg-background/80 p-4">
-                      {/* App header */}
-                      <div className="flex items-center gap-2 mb-4">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                          <Languages className="h-4 w-4" />
-                        </div>
-                        <span className="text-sm font-semibold text-foreground">
-                          LinguaHub
+                <div className="relative w-full max-w-md">
+                  {/* Desktop app window */}
+                  <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-card shadow-[0_30px_70px_-30px_rgba(0,0,0,0.35)]">
+                    {/* Window title bar */}
+                    <div className="flex items-center gap-2 border-b border-border/40 bg-muted/40 px-4 py-3">
+                      <span className="h-3 w-3 rounded-full bg-destructive/60" />
+                      <span className="h-3 w-3 rounded-full bg-hero/60" />
+                      <span className="h-3 w-3 rounded-full bg-primary/60" />
+                      <div className="ml-3 flex items-center gap-1.5 rounded-md bg-background/70 px-2.5 py-1">
+                        <Languages className="h-3 w-3 text-primary" />
+                        <span className="text-xs font-medium text-muted-foreground">
+                          linguahub.app/lesson
                         </span>
                       </div>
+                      <span className="ml-auto flex items-center gap-1.5 rounded-full bg-destructive/10 px-2 py-1 text-xs font-semibold text-destructive">
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-destructive" />
+                        LIVE
+                      </span>
+                    </div>
 
-                      {/* Lesson visualization */}
-                      <div className="space-y-3">
-                        {/* Live status */}
-                        <div className="flex items-center gap-2 rounded-lg bg-primary/10 p-3">
-                          <Video className="h-4 w-4 text-primary" />
-                          <span className="text-xs text-foreground">
-                            Live lesson starting
+                    {/* Window body */}
+                    <div className="p-4">
+                      {/* Video call area */}
+                      <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/15 via-card to-accent/10 p-4">
+                        <div className="flex items-center justify-between">
+                          <span className="rounded-md bg-background/70 px-2 py-1 text-xs font-medium text-foreground">
+                            French · Conversation
                           </span>
-                          <div className="ml-auto h-2 w-2 animate-pulse rounded-full bg-primary" />
+                          <span className="rounded-md bg-background/70 px-2 py-1 font-mono text-xs text-muted-foreground">
+                            24:10
+                          </span>
                         </div>
 
-                        {/* Course card */}
-                        <div className="rounded-lg border border-border/50 bg-card/50 p-3">
-                          <div className="text-xs text-muted-foreground mb-1">
-                            Today&apos;s Course
-                          </div>
-                          <div className="font-mono text-lg font-bold text-primary">
-                            FR
-                          </div>
-                          <div className="text-xs text-muted-foreground mt-1">
-                            French - Conversation
-                          </div>
-                        </div>
-
-                        {/* Progress indicator */}
-                        <div className="flex items-center gap-2 rounded-lg bg-accent/10 p-3">
-                          <Award className="h-4 w-4 text-accent" />
-                          <div className="flex-1">
-                            <div className="text-xs font-medium text-foreground">
-                              Your Progress
+                        {/* Participant tiles */}
+                        <div className="mt-4 grid grid-cols-3 gap-2">
+                          <div className="flex aspect-square flex-col items-center justify-center rounded-lg bg-primary/20">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                              <Users className="h-4 w-4" />
                             </div>
-                            <div className="text-xs text-muted-foreground">
-                              Level B1 - 68%
+                            <span className="mt-1 text-[10px] font-medium text-foreground">
+                              Emma
+                            </span>
+                          </div>
+                          <div className="flex aspect-square flex-col items-center justify-center rounded-lg bg-accent/20">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                              <Users className="h-4 w-4" />
                             </div>
+                            <span className="mt-1 text-[10px] font-medium text-foreground">
+                              You
+                            </span>
+                          </div>
+                          <div className="flex aspect-square flex-col items-center justify-center rounded-lg bg-muted">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-background text-muted-foreground">
+                              <Users className="h-4 w-4" />
+                            </div>
+                            <span className="mt-1 text-[10px] font-medium text-muted-foreground">
+                              +3
+                            </span>
                           </div>
                         </div>
 
-                        {/* Features list */}
-                        <div className="flex items-center justify-between pt-2">
-                          <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                            <MessageCircle className="h-3 w-3 text-primary" />
-                            <span>Speaking</span>
+                        {/* Call controls */}
+                        <div className="mt-4 flex items-center justify-center gap-2">
+                          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                            <Mic className="h-4 w-4" />
+                          </span>
+                          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-background text-foreground">
+                            <Video className="h-4 w-4" />
+                          </span>
+                          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-background text-foreground">
+                            <MessageCircle className="h-4 w-4" />
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Bottom info blocks */}
+                      <div className="mt-3 grid grid-cols-2 gap-3">
+                        <div className="rounded-lg border border-border/50 bg-background/60 p-3">
+                          <div className="text-xs text-muted-foreground">
+                            Today&apos;s topic
                           </div>
-                          <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                            <Globe className="h-3 w-3 text-primary" />
-                            <span>Native</span>
+                          <div className="mt-1 text-sm font-semibold text-foreground">
+                            Ordering at a café
+                          </div>
+                        </div>
+                        <div className="rounded-lg border border-border/50 bg-background/60 p-3">
+                          <div className="flex items-center gap-1.5">
+                            <Award className="h-3.5 w-3.5 text-primary" />
+                            <span className="text-xs text-muted-foreground">
+                              Progress
+                            </span>
+                          </div>
+                          <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-muted">
+                            <div className="h-full w-[68%] rounded-full bg-primary" />
+                          </div>
+                          <div className="mt-1 text-[11px] text-muted-foreground">
+                            Level B1 · 68%
                           </div>
                         </div>
                       </div>
                     </div>
-
-                    {/* Phone notch */}
                   </div>
 
                   {/* Decorative elements */}

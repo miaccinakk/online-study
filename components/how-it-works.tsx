@@ -35,20 +35,27 @@ export function HowItWorks() {
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/70" />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Small eyebrow label instead of a big heading */}
-        <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-          Who teaches you
-        </p>
+        {/* Section heading, consistent with the other sections */}
+        <div className="max-w-2xl">
+          <h2
+            id="teacher-heading"
+            className="text-3xl font-bold tracking-tight sm:text-4xl"
+          >
+            <span className="text-foreground">Meet your </span>
+            <span className="gradient-text">teacher</span>
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Every LinguaHub course is built and taught by an experienced native
+            teacher who cares about your progress.
+          </p>
+        </div>
 
-        <div className="mt-6 grid items-stretch gap-6 lg:grid-cols-[1.5fr_1fr] lg:gap-8">
-          {/* Left colored panel with author info */}
-          <div className="relative overflow-hidden rounded-2xl border border-primary/15 bg-gradient-to-br from-primary/10 via-card/80 to-accent/10 p-6 backdrop-blur-sm sm:p-8 lg:p-10">
-            <h2
-              id="teacher-heading"
-              className="text-2xl font-bold tracking-tight sm:text-3xl"
-            >
-              <span className="gradient-text">Emma Laurent</span>
-            </h2>
+        <div className="mt-12 grid items-stretch gap-8 lg:grid-cols-[1.5fr_1fr]">
+          {/* Left: author info directly on the section background */}
+          <div>
+            <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+              Emma Laurent
+            </h3>
             <p className="mt-1 text-sm font-medium text-muted-foreground">
               Lead teacher &amp; head of curriculum at LinguaHub
             </p>
@@ -61,14 +68,14 @@ export function HowItWorks() {
               real world, with people, not just on paper.&rdquo;
             </p>
 
-            {/* Small info cards */}
+            {/* UTP cards sitting on the common background */}
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {stats.map((stat) => {
                 const Icon = stat.icon;
                 return (
                   <div
                     key={stat.value}
-                    className="rounded-xl border border-border/40 bg-card/70 p-4 backdrop-blur-sm"
+                    className="rounded-xl border border-border/40 bg-card/70 p-4"
                   >
                     <div className="flex items-center gap-2">
                       <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -87,7 +94,7 @@ export function HowItWorks() {
             </div>
           </div>
 
-          {/* Right photo block, height matches the left panel */}
+          {/* Right photo block */}
           <div className="relative min-h-72 overflow-hidden rounded-2xl border border-border/30 bg-card/40">
             <Image
               src="/images/teacher-portrait.png"
